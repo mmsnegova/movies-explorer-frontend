@@ -1,0 +1,44 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation__link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+}
+
+.navigation__link_light {
+    color: #FFF;
+}
+
+.navigation__link_dark {
+    color: #000;
+}
+
+
+.navigation__button {
+    width: 76px;
+    height: 32px;
+    background-color: #3DDC84;
+    border-radius: 3px;
+    border: none;
+}
+
+@media (max-width: 500px) {
+    .navigation {
+        gap: 14px;
+    }
+
+    .navigation__link {
+        font-size: 10px;
+    }
+
+    .navigation__button {
+        width: 54px;
+        height: 26px;
+    }
+}

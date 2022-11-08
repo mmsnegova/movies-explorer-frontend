@@ -1,0 +1,120 @@
+.about-me {
+    padding: 110px 70px 0;
+}
+
+.about-me__bloc {
+    margin-top: 66px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-me__info {
+    margin-right: 49px;
+}
+
+.about-me__name {
+    margin: 0 0 18px;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+}
+
+.about-me__job {
+    margin: 0 0 26px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.about-me__description {
+    max-width: 600px;
+    margin: 0 0 99px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.about-me__github {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.about-me__avatar {
+    width: 270px;
+    height: 327px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@media (max-width: 880px) {
+    .about-me {
+        padding: 90px 50px 0;
+    }
+
+    .about-me__name {
+        margin-bottom: 16px;
+        font-size: 40px;
+        line-height: 1;
+    }
+
+    .about-me__job {
+        margin-bottom: 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-me__description {
+        margin-bottom: 87px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-me__avatar {
+        width: 255px;
+        height: 307px;
+    }
+    
+}
+
+@media (max-width: 700px) {
+    .about-me {
+        padding: 70px 14px 0;
+    }
+
+    .about-me__bloc {
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .about-me__info {
+        margin-right: 0;
+    }
+
+    .about-me__name {
+        margin-bottom: 20px;
+        font-size: 30x;
+        line-height: 36px;
+    }
+    
+    .about-me__job {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-me__description {
+        margin-bottom: 40px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-me__avatar {
+        width: 292px;
+        height: 352px;
+    }
+}

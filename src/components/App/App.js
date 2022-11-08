@@ -1,7 +1,6 @@
 import './App.css';
 import { Switch, Route } from "react-router-dom";
 import Header from "../Header/Header";
-import Navigation from "../Navigation/Navigation";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
@@ -15,7 +14,6 @@ function App() {
     <div className="app">
       <div className="app__container">
         <Header /> {/* шапка */}
-        <Navigation /> {/* навигация */}
         <Switch>
         <Route exact path="/">{/* О проекте */}
           <Main />

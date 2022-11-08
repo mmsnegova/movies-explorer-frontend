@@ -1,0 +1,9 @@
+.animation-link {
+    transition: opacity 0.3s ease;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    .animation-link:hover {
+      opacity: 0.6;
+    }
+}
