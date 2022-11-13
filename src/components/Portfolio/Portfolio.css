@@ -8,9 +8,8 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 20px;
-    color: #8B8B8B;
+    color: #8b8b8b;
 }
-
 
 .portfolio__links {
     margin: 0;
@@ -20,7 +19,7 @@
 .portfolio__cell {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #424242 ;
+    border-bottom: 1px solid #424242;
     padding-bottom: 19px;
     margin-bottom: 20px;
     align-items: center;
@@ -45,11 +44,9 @@
 }
 
 .portfolio__link {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
 }
-
-
 
 @media (max-width: 880px) {
     .portfolio {
@@ -59,7 +56,6 @@
     .portfolio__cell {
         font-size: 28px;
     }
-
 }
 
 @media (max-width: 700px) {

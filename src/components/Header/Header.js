@@ -1,13 +1,12 @@
-import React from "react";
-import Navigation from '../Navigation/Navigation';
+import React from 'react';
 import './Header.css';
 
-function Header() {
+function Header(props) {
     return (
         <header className="header">
             <div className="header__logo"></div>
-            <Navigation />        
+            {props.children}
         </header>
-    )
+    );
 }
 export default Header;

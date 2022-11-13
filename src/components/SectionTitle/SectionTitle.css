@@ -6,7 +6,7 @@
     line-height: 27px;
     letter-spacing: -0.04em;
     padding-bottom: 23px;
-    border-bottom: #DADADA 1px solid;
+    border-bottom: #dadada 1px solid;
 }
 
 @media (max-width: 700px) {
@@ -17,6 +17,6 @@
     }
 
     .section__title_dark {
-        border-bottom-color: #000; 
+        border-bottom-color: #000;
     }
 }

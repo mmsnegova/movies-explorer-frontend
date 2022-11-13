@@ -36,7 +36,7 @@
     display: flex;
     padding: 0;
     text-align: center;
-    color: #8B8B8B;
+    color: #8b8b8b;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -55,7 +55,7 @@
 
 .about-project__bar-back {
     height: 36px;
-    background-color: #3DDC84;
+    background-color: #3ddc84;
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -70,7 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFF;
+    color: #fff;
 }
 
 @media (max-width: 880px) {
@@ -127,7 +127,7 @@
     .about-project__back {
         width: 35%;
     }
-    
+
     .about-project__front {
         width: 65%;
     }
@@ -136,7 +136,7 @@
         height: 35px;
         margin-bottom: 10px;
     }
-    
+
     .about-project__bar-front {
         height: 35px;
         margin-bottom: 10px;

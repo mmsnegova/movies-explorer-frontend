@@ -1,11 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function Login() {
-    return (
-        <section>
-            Авторизация
-        </section>
-    )
+    return <section>Авторизация</section>;
 }
 
 export default Login;

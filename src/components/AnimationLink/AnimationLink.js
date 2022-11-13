@@ -1,12 +1,8 @@
-import React from "react";
-import "./AnimationLink.css"
+import React from 'react';
+import './AnimationLink.css';
 
 function AnimationLink(props) {
-    return (
-        <section className='animation-link'>
-            {props.children}
-        </section>
-    )
+    return <div className="animation-link">{props.children}</div>;
 }
 
 export default AnimationLink;

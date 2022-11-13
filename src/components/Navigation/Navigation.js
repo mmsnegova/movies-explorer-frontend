@@ -1,25 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import AnimationLink from '../AnimationLink/AnimationLink';
+import React from 'react';
 import './Navigation.css';
 
-function Navigation() {
+function Navigation(props) {
     return (
-        <nav className="navigation">
-            <AnimationLink>
-                <Link to="signup" className="navigation__link navigation__link_light">
-                    Регистрация
-                </Link>
-            </AnimationLink>
-            <AnimationLink>
-                <button className="navigation__button">
-                    <Link to="signin" className="navigation__link navigation__link_dark">
-                        Войти
-                    </Link>
-                </button>
-            </AnimationLink>
+        <nav className={`navigation navigation_type_${props.type}`}>
+            {props.children}
         </nav>
-    )
+    );
 }
 
 export default Navigation;

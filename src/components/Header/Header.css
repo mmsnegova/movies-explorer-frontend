@@ -2,8 +2,10 @@
     padding: 18px 70px;
     flex-shrink: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: visible;
 }
 
 .header__logo {
@@ -12,6 +14,7 @@
     background-image: url(../../images/logo.svg);
     background-size: contain;
     background-repeat: no-repeat;
+    margin-right: 44px;
 }
 
 @media (max-width: 880px) {

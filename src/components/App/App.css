@@ -1,15 +1,17 @@
 .app {
     background: #202020;
-    font-family: 'Inter', 'Arial', 'Helvetica', 'Verdana', sans-serif;
+    font-family: "Inter", "Arial", "Helvetica", "Verdana", sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    }
+}
 
 .app__container {
     margin: 0 auto;
     max-width: 1280px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
     min-height: 100vh;
-    color: #FFF;
+    color: #fff;
 }

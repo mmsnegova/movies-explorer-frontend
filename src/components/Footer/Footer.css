@@ -11,7 +11,7 @@
     font-size: 13px;
     line-height: 16px;
     text-align: center;
-    color: #8B8B8B;
+    color: #8b8b8b;
     padding-bottom: 20px;
     border-bottom: 1px solid #424242;
 }
@@ -42,7 +42,7 @@
     font-size: 13px;
     line-height: 16px;
     text-align: right;
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -53,7 +53,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
     .footer {
         padding-left: 10px;
         padding-right: 10px;
@@ -75,7 +75,7 @@
     }
 
     .footer__copyright {
-        color: #8B8B8B;
+        color: #8b8b8b;
     }
 
     .footer_links {

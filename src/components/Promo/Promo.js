@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import NavTab from '../NavTab/NavTab';
 import './Promo.css';
 
@@ -10,7 +10,7 @@ function Promo() {
             </h1>
             <NavTab />
         </section>
-    )
+    );
 }
 
 export default Promo;

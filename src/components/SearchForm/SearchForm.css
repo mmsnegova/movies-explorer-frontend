@@ -1,0 +1,108 @@
+.search-form {
+    padding: 70px 70px 109px;
+    border-bottom: solid 1px #424242;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-form__form {
+    background-color: #222;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    padding: 16px 25px;
+    height: 72px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.search-form__fieldset {
+    padding: 0;
+    margin: 0;
+    margin-right: 29px;
+    align-items: center;
+    padding-right: 19px;
+    border: none;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    border-right: solid 1px #505050;
+}
+
+.search-form__input {
+    width: 22px;
+    flex-grow: 1;
+    background: none;
+    background-image: url("../../images/icon.svg");
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding: 0 0 0 calc(63px - 25px);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    border: none;
+    color: #8b8b8b;
+}
+
+.search-form__submit {
+    position: relative;
+    cursor: pointer;
+    border-radius: 17px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: #3456f3;
+    background-image: url("../../images/icon_white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 34px;
+    height: 34px;
+    transition: opacity 0.3s ease;
+}
+
+.search-form__input::placeholder {
+    color: #8b8b8b;
+}
+
+.search-form__input:focus {
+    outline: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .search-form__submit:hover {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 880px) {
+    .search-form {
+        padding: 80px 30px 109px;
+    }
+}
+
+@media (max-width: 500px) {
+    .search-form {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .search-form__form {
+        padding: 19px;
+        flex-direction: column;
+        gap: calc(46px + 19px);
+    }
+
+    .search-form__fieldset {
+        margin-right: 0;
+        padding-right: 0;
+        border: none;
+        justify-content: space-between;
+    }
+
+    .search-form__input {
+        font-size: 14px;
+        background: none;
+        padding: 0;
+    }
+}
