@@ -1,0 +1,15 @@
+.nav-logon__button-green {
+    cursor: pointer;
+    width: 76px;
+    height: 32px;
+    background-color: #3ddc84;
+    border-radius: 3px;
+    border: none;
+    padding: 0;
+    transition: opacity 0.3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+    .nav-logon__button-green:hover {
+        opacity: 0.8;
+    }
+}

@@ -1,54 +1,54 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import AnimationLink from '../AnimationLink/AnimationLink';
+import NavLink from '../NavLink/NavLink';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
+import AnimationLink from '../AnimationLink/AnimationLink';
 import './HeaderLogin.css';
+import Navigation from '../Navigation/Navigation';
 
 function HeaderLogin(props) {
     return (
         <Header>
             <Navigation type="login">
-                <div className="navigation__links">
-                    <div className="navigation__links-left">
+                <div className="nav-login__links">
+                    <div className="nav-login__links-left">
                         <AnimationLink>
-                            <Link
-                                to="/"
-                                className="navigation__link navigation__link-main navigation__link_text_medium"
-                            >
-                                Главная
-                            </Link>
+                            <NavLink
+                                path="/"
+                                name="main"
+                                size="medium"
+                                title="Главная"
+                            />
                         </AnimationLink>
                         <AnimationLink>
-                            <Link
-                                to="movies"
-                                className={`navigation__link navigation__link_text_medium ${props.activeLinkMovies}`}
-                            >
-                                Фильмы
-                            </Link>
+                            <NavLink
+                                path="/movies"
+                                name="movies"
+                                size="medium"
+                                title="Фильмы"
+                                active={props.activeLinkMovies}
+                            />
                         </AnimationLink>
                         <AnimationLink>
-                            <Link
-                                to="saved-movies"
-                                className={`navigation__link navigation__link_text_medium ${props.activeLinkSavedMovies}`}
-                            >
-                                Сохранённые фильмы
-                            </Link>
+                            <NavLink
+                                path="/saved-movies"
+                                name="saved-movies"
+                                size="medium"
+                                title="Сохранённые фильмы"
+                                active={props.activeLinkSavedMovies}
+                            />
                         </AnimationLink>
                     </div>
-                    <AnimationLink>
-                        <button className="navigation__button-gray">
-                            <Link
-                                to="profile"
-                                className="navigation__link navigation__link_text_large"
-                            >
-                                Аккаунт
-                            </Link>
-                        </button>
-                    </AnimationLink>
+                    <button className="nav-login__button-gray">
+                        <NavLink
+                            path="/profile"
+                            name="profile"
+                            size="large"
+                            title="Аккаунт"
+                        />
+                    </button>
                 </div>
-                <button className="navigation___button-close"></button>
+                <button className="nav-login___button-close"></button>
             </Navigation>
             <BurgerMenu />
         </Header>

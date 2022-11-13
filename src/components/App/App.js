@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Main from '../Main/Main';
@@ -6,7 +7,7 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import Footer from '../Footer/Footer';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
     return (
@@ -37,9 +38,11 @@ function App() {
                         {/* Регистрация */}
                         <Register />
                     </Route>
+                    <Route path="/*">
+                        {/* Регистрация */}
+                        <PageNotFound />
+                    </Route>
                 </Switch>
-                <Footer />
-                {/* Подвал */}
             </div>
         </div>
     );

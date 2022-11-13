@@ -53,12 +53,6 @@
     left: 22px;
 }
 
-.filter-checkbox__label {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 18px;
-}
-
 @media (hover: hover) and (pointer: fine) {
     .filter-checkbox:hover {
         opacity: 0.8;

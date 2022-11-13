@@ -1,0 +1,67 @@
+.label-with-input__lable {
+    position: relative;
+}
+
+.label-with-input__lable_profile {
+    border-bottom: 1px solid #424242;
+    margin-bottom: 17px;
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.label-with-input__lable_logon {
+    border: none;
+    margin-bottom: 20px;
+    display: block;
+    text-align: start;
+    width: 100%;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.label-with-input__lable_profile:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.label-with-input__lable_logon:last-of-type {
+    margin-bottom: 10px;
+}
+
+.label-with-input__input {
+    border: none;
+    color: #fff;
+}
+
+.label-with-input__input_profile {
+    width: 120px;
+    background: none;
+    color: #fff;
+    text-align: end;
+}
+
+.label-with-input__input_logon {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    background: #2f2f2f;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: start;
+}
+
+.label-with-input__input_password {
+    color: #ee3465;
+}
+
+.label-with-input__input:focus {
+    outline: none;
+}

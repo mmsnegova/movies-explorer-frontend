@@ -9,8 +9,9 @@ function FilterCheckbox() {
                 type="checkbox"
                 name="short-film"
                 id="short-film"
+                defaultChecked
             />
-            <label lassName="filter-checkbox__label" for="short-film">
+            <label className="filter-checkbox__label" htmlFor="short-film">
                 Короткометражки
             </label>
         </fieldset>
