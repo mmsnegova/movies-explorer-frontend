@@ -16,7 +16,7 @@ function Login() {
                     nameButton="signup"
                     span="Ещё не зарегистрированы? "
                     textLink="Регистрация"
-                    path="/signip"
+                    path="/signup"
                 >
                     <LabelWithInput
                         form="logon"

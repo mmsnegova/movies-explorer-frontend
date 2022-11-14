@@ -41,6 +41,10 @@
     color: #000;
 }
 
+.nav-link_active {
+    font-weight: 500;
+}
+
 @media (max-width: 880px) {
     .nav-link {
         display: inline-block;

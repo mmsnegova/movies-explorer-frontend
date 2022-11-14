@@ -78,10 +78,15 @@
 }
 
 .section-form__spans_logon {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     color: #8b8b8b;
+    width: 100%;
 }
 
 .section-form__link {
@@ -133,6 +138,7 @@
 
     .section-form__title {
         margin-bottom: 80px;
+        text-align: center;
     }
 
     .section-form__submit {

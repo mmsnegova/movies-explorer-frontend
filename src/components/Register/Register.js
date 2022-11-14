@@ -7,7 +7,7 @@ import './Register.css';
 function Register() {
     return (
         <>
-            <Header />
+            <Header type="logon" />
             <main className="register">
                 <SectionForm
                     form="logon"

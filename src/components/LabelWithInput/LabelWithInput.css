@@ -21,8 +21,9 @@
     text-align: start;
     width: 100%;
     font-weight: 400;
-    font-size: 11px;
-    line-height: 13px;
+    font-size: 10px;
+    line-height: 12px;
+    color: #8b8b8b;
 }
 
 .label-with-input__lable_profile:last-of-type {
@@ -45,9 +46,15 @@
     background: none;
     color: #fff;
     text-align: end;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
 }
 
 .label-with-input__input_logon {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
     box-sizing: border-box;
     width: 100%;
     margin-top: 10px;
