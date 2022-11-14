@@ -7,10 +7,14 @@ import Footer from '../Footer/Footer';
 
 import './SavedMovies.css';
 
-function SavedMovies() {
+function SavedMovies(props) {
     return (
         <>
-            <HeaderLogin activeLinkSavedMovies="active" />
+            <HeaderLogin
+                activeLinkSavedMovies="active"
+                onNavMenu={props.onNavMenu}
+                isOpenNavMenu={props.isOpenNavMenu}
+            />
             <main className="saved-movies">
                 <SearchForm />
                 <Preloader />

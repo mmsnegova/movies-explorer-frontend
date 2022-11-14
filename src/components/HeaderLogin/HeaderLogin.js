@@ -9,7 +9,7 @@ import Navigation from '../Navigation/Navigation';
 function HeaderLogin(props) {
     return (
         <Header>
-            <Navigation type="login">
+            <Navigation type="login" isOpenNavMenu={props.isOpenNavMenu}>
                 <div className="nav-login__links">
                     <div className="nav-login__links-left">
                         <AnimationLink>
@@ -48,9 +48,12 @@ function HeaderLogin(props) {
                         />
                     </button>
                 </div>
-                <button className="nav-login___button-close"></button>
+                <button
+                    className="nav-login___button-close"
+                    onClick={props.onNavMenu}
+                ></button>
             </Navigation>
-            <BurgerMenu />
+            <BurgerMenu onNavMenu={props.onNavMenu} />
         </Header>
     );
 }

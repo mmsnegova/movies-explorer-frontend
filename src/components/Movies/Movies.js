@@ -6,14 +6,22 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import './Movies.css';
 
-function Movies() {
+function Movies(props) {
     return (
         <>
-            <HeaderLogin activeLinkMovies="active" />
+            <HeaderLogin
+                activeLinkMovies="active"
+                onNavMenu={props.onNavMenu}
+                isOpenNavMenu={props.isOpenNavMenu}
+            />
             <main className="movies">
                 <SearchForm />
                 <Preloader />
-                <MoviesCardList button="movies-card__button_like" />
+                <MoviesCardList
+                    onMoviesCard={props.onMoviesCard}
+                    isViewMoviesCards={props.isViewMoviesCards}
+                    button="movies-card__button_like"
+                />
             </main>
             <Footer />
         </>

@@ -1,9 +1,9 @@
 import React from 'react';
 import './BurgerMenu.css';
 
-function BurgerMenu() {
+function BurgerMenu(props) {
     return (
-        <div className="burger-menu">
+        <div className="burger-menu" onClick={props.onNavMenu}>
             <span></span>
         </div>
     );

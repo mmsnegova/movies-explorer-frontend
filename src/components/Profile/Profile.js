@@ -4,10 +4,13 @@ import LabelWithInput from '../LabelWithInput/LabelWithInput';
 import SectionForm from '../SectionForm/SectionForm';
 import './Profile.css';
 
-function Profile() {
+function Profile(props) {
     return (
         <>
-            <HeaderLogin />
+            <HeaderLogin
+                onNavMenu={props.onNavMenu}
+                isOpenNavMenu={props.isOpenNavMenu}
+            />
             <main className="profile">
                 <SectionForm
                     form="profile"

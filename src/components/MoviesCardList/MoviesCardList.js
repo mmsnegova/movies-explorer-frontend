@@ -22,9 +22,24 @@ import './MoviesCardList.css';
 function MoviesCardList(props) {
     return (
         <section className="movies-card-list">
-            <button className="movies-card-list__more">Ещё</button>
-            <ul className="movies-card-list__list">
-                <li className="movies-card-list__item">
+            <button
+                className="movies-card-list__more"
+                onClick={props.onMoviesCard}
+            >
+                Ещё
+            </button>
+            <ul
+                className={`movies-card-list__list ${
+                    props.isViewMoviesCards ? 'movies-card-list_opened' : ''
+                }`}
+            >
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={_33_words_about_design}
                         name="33 слова о дизайне"
@@ -33,7 +48,13 @@ function MoviesCardList(props) {
                         cursor={props.cursor}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={_100_years_of_design}
                         name="Киноальманах «100 лет дизайна»"
@@ -42,7 +63,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={banksy_most_wanted}
                         name="В погоне за Бенкси"
@@ -51,7 +78,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={boom_for_real}
                         name="Баския: Взрыв реальности"
@@ -60,7 +93,13 @@ function MoviesCardList(props) {
                         cursor={props.cursor}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={free_to_run}
                         name="Бег это свобода"
@@ -69,7 +108,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={the_booksellers}
                         name="Книготорговцы"
@@ -78,7 +123,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={if_i_think_of_germany_at_night}
                         name="Когда я думаю о Германии ночью"
@@ -87,7 +138,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={gimme_danger}
                         name="Gimme Danger: История Игги и The Stooges"
@@ -96,7 +153,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={janis}
                         name="Дженис: Маленькая девочка грустит"
@@ -105,7 +168,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={minding_the_gap}
                         name="Соберись перед прыжком"
@@ -114,7 +183,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={a_dog_called_money}
                         name="Пи Джей Харви: A dog called money"
@@ -123,7 +198,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={making_waves}
                         name="По волнам: Искусство звука в кино"
@@ -132,7 +213,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={rudeboy}
                         name="Рудбой"
@@ -141,7 +228,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={skate_kitchen}
                         name="Скейт — кухня"
@@ -150,7 +243,13 @@ function MoviesCardList(props) {
                         duration="1ч 42м"
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={war_of_art}
                         name="Война искусств"
@@ -159,7 +258,13 @@ function MoviesCardList(props) {
                         button={props.button}
                     />
                 </li>
-                <li className="movies-card-list__item">
+                <li
+                    className={`movies-card-list__item ${
+                        props.isViewMoviesCards
+                            ? 'movies-card-list__item_opened'
+                            : ''
+                    }`}
+                >
                     <MoviesCard
                         image={the_zone}
                         name="Зона"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Main from '../Main/Main';
@@ -10,36 +10,53 @@ import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
+    const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
+    const [isMoviesCardsView, setIsMoviesCardsView] = useState(false);
+
+    const handleNavMenuClick = () => {
+        setIsNavMenuOpen(!isNavMenuOpen);
+    };
+
+    const handleMoreClick = () => {
+        setIsMoviesCardsView(!isMoviesCardsView);
+    };
+
     return (
         <div className="app">
             <div className="app__container">
                 <Switch>
                     <Route exact path="/">
-                        {/* О проекте */}
                         <Main />
                     </Route>
                     <Route path="/movies">
-                        {/* Фильмы */}
-                        <Movies />
+                        <Movies
+                            onNavMenu={handleNavMenuClick}
+                            isOpenNavMenu={isNavMenuOpen}
+                            onMoviesCard={handleMoreClick}
+                            isViewMoviesCards={isMoviesCardsView}
+                        />
                     </Route>
                     <Route path="/saved-movies">
-                        {/* Сохранённые фильмы */}
-                        <SavedMovies />
+                        <SavedMovies
+                            onNavMenu={handleNavMenuClick}
+                            isOpenNavMenu={isNavMenuOpen}
+                            onMoviesCard={handleMoreClick}
+                            isViewMoviesCards={isMoviesCardsView}
+                        />
                     </Route>
                     <Route path="/profile">
-                        {/* Аккаунт */}
-                        <Profile />
+                        <Profile
+                            onNavMenu={handleNavMenuClick}
+                            isOpenNavMenu={isNavMenuOpen}
+                        />
                     </Route>
                     <Route path="/signin">
-                        {/* Авторизация */}
                         <Login />
                     </Route>
                     <Route path="/signup">
-                        {/* Регистрация */}
                         <Register />
                     </Route>
                     <Route path="/*">
-                        {/* Регистрация */}
                         <PageNotFound />
                     </Route>
                 </Switch>
