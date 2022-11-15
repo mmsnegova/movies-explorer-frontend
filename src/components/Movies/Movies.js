@@ -13,6 +13,7 @@ function Movies(props) {
                 activeLinkMovies="active"
                 onNavMenu={props.onNavMenu}
                 isOpenNavMenu={props.isOpenNavMenu}
+                type="movies"
             />
             <main className="movies">
                 <SearchForm />

@@ -6,9 +6,9 @@ import NavLink from '../NavLink/NavLink';
 
 import './HeaderLogon.css';
 
-function HeaderLogon() {
+function HeaderLogon(props) {
     return (
-        <Header>
+        <Header type={props.type}>
             <Navigation type="logon">
                 <AnimationLink>
                     <NavLink
@@ -18,16 +18,13 @@ function HeaderLogon() {
                         title="Регистрация"
                     />
                 </AnimationLink>
-
-                <button className="nav-logon__button-green">
-                    <NavLink
-                        path="/signin"
-                        name="signin"
-                        size="small"
-                        title="Войти"
-                        color="dark"
-                    />
-                </button>
+                <NavLink
+                    path="/signin"
+                    name="signin"
+                    size="small"
+                    title="Войти"
+                    color="dark"
+                />
             </Navigation>
         </Header>
     );

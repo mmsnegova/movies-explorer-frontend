@@ -11,7 +11,7 @@ import './Main.css';
 function Main() {
     return (
         <>
-            <HeaderLogon />
+            <HeaderLogon type="main" />
             <main className="content">
                 <Promo />
                 <AboutProject />

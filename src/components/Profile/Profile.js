@@ -10,6 +10,7 @@ function Profile(props) {
             <HeaderLogin
                 onNavMenu={props.onNavMenu}
                 isOpenNavMenu={props.isOpenNavMenu}
+                type="profile"
             />
             <main className="profile">
                 <SectionForm

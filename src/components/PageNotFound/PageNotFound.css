@@ -5,13 +5,12 @@
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-    height: 100%;
-    justify-content: space-between;
 }
 
 .page-not-found__title {
     padding: 0;
     margin: 0;
+    margin-bottom: 10px;
     font-weight: 400;
     font-size: 140px;
     line-height: 169px;
@@ -24,6 +23,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
+    margin-bottom: 184px;
 }
 
 .page-not-found__link {
@@ -63,10 +63,12 @@
     .page-not-found__subtitle {
         font-size: 12px;
         line-height: 15px;
+        margin-bottom: 284px;
     }
 
     .page-not-found__link {
         font-size: 12px;
         line-height: 15px;
+        margin-top: 284px;
     }
 }

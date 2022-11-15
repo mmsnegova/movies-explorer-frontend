@@ -8,7 +8,6 @@ function Portfolio() {
             <h3 className="portfolio__title">Портфолио</h3>
             <ul className="portfolio__links">
                 <li className="portfolio__cell">
-                    <p className="portfolio__subtitle">Статичный сайт</p>
                     <AnimationLink>
                         <a
                             href="https://github.com/mmsnegova/how-to-learn.git"
@@ -16,12 +15,14 @@ function Portfolio() {
                             rel="noreferrer"
                             className="portfolio__link"
                         >
-                            ↗
+                            <p className="portfolio__subtitle">
+                                Статичный сайт
+                            </p>
+                            <span>↗</span>
                         </a>
                     </AnimationLink>
                 </li>
                 <li className="portfolio__cell">
-                    <p className="portfolio__subtitle">Адаптивный сайт</p>
                     <AnimationLink>
                         <a
                             href="https://github.com/mmsnegova/russian-travel.git"
@@ -29,14 +30,14 @@ function Portfolio() {
                             rel="noreferrer"
                             className="portfolio__link"
                         >
-                            ↗
+                            <p className="portfolio__subtitle">
+                                Адаптивный сайт
+                            </p>
+                            <span>↗</span>
                         </a>
                     </AnimationLink>
                 </li>
                 <li className="portfolio__cell">
-                    <p className="portfolio__subtitle">
-                        Одностраничное приложение
-                    </p>
                     <AnimationLink>
                         <a
                             href="https://github.com/mmsnegova/react-mesto-api-full.git"
@@ -44,7 +45,10 @@ function Portfolio() {
                             rel="noreferrer"
                             className="portfolio__link"
                         >
-                            ↗
+                            <p className="portfolio__subtitle">
+                                Одностраничное приложение
+                            </p>
+                            <span>↗</span>
                         </a>
                     </AnimationLink>
                 </li>

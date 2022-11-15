@@ -1,5 +1,4 @@
 .movies-card {
-    width: auto;
     display: flex;
     flex-direction: column;
     border-radius: 6px;
@@ -96,7 +95,7 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .movies-card__image {
         height: 190px;
     }

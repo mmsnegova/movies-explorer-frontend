@@ -8,7 +8,7 @@ import Navigation from '../Navigation/Navigation';
 
 function HeaderLogin(props) {
     return (
-        <Header>
+        <Header type={props.type}>
             <Navigation type="login" isOpenNavMenu={props.isOpenNavMenu}>
                 <div className="nav-login__links">
                     <div className="nav-login__links-left">
@@ -39,14 +39,12 @@ function HeaderLogin(props) {
                             />
                         </AnimationLink>
                     </div>
-                    <button className="nav-login__button-gray">
-                        <NavLink
-                            path="/profile"
-                            name="profile"
-                            size="large"
-                            title="Аккаунт"
-                        />
-                    </button>
+                    <NavLink
+                        path="/profile"
+                        name="profile"
+                        size="large"
+                        title="Аккаунт"
+                    />
                 </div>
                 <button
                     className="nav-login___button-close"

@@ -13,7 +13,7 @@
 .section-form__title {
     text-align: center;
     margin: 0;
-    margin-bottom: 80px;
+    margin-bottom: 123px;
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
@@ -33,7 +33,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: space-between;
 }
 
 .section-form__error {
@@ -43,9 +42,18 @@
 }
 
 .section-form__buttons {
+    margin-top: 220px;
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.section-form__buttons_signup {
+    margin-top: 69px;
+}
+
+.section-form__buttons_signin {
+    margin-top: 179px;
 }
 
 .section-form__submit {
@@ -59,22 +67,26 @@
     transition: opacity 0.3s ease;
 }
 
-.section-form__submit_profile {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    width: min-content;
-}
-
 .section-form__submit_logon {
     padding-top: 13px;
     padding-bottom: 15px;
     border-radius: 3px;
     background: #4285f4;
     font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 14px;
+    line-height: 17px;
     width: 100%;
+}
+
+.section-form__submit_profile {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.section-form__spans_profile {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
 }
 
 .section-form__spans_logon {
@@ -95,13 +107,15 @@
 
 .section-form__link_logon {
     color: #4285f4;
+    font-size: 14px;
+    line-height: 17px;
 }
 
 .section-form__link_exit {
     color: #ee3465;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -122,6 +136,11 @@
     .section-form__title_logon {
         margin-bottom: 40px;
     }
+
+    .section-form__link_exit {
+        font-size: 13px;
+        line-height: 16px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -141,12 +160,38 @@
         text-align: center;
     }
 
+    .section-form__buttons_signup {
+        margin-top: 157px;
+    }
+
+    .section-form__buttons_signin {
+        margin-top: 267px;
+    }
+
     .section-form__submit {
         font-size: 12px;
         line-height: 15px;
     }
 
+    .section-form__submit_profile {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
     .section-form__spans_logon {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .section-form__link_logon {
+        color: #4285f4;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .section-form__link_exit {
+        color: #ee3465;
+        font-weight: 400;
         font-size: 12px;
         line-height: 15px;
     }

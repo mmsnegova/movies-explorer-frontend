@@ -15,7 +15,9 @@ function SectionForm(props) {
                     </h2>
                     {props.children}
                 </div>
-                <div className="section-form__buttons">
+                <div
+                    className={`section-form__buttons section-form__buttons_1${props.type}`}
+                >
                     <button
                         className={`section-form__submit section-form__submit_${props.form}`}
                         type="submit"

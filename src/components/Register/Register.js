@@ -11,6 +11,7 @@ function Register() {
             <main className="register">
                 <SectionForm
                     form="logon"
+                    typeButton="signin"
                     title="Добро пожаловать!"
                     textButton="Зарегистрироваться"
                     nameButton="logon"

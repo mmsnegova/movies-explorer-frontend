@@ -27,8 +27,12 @@
     margin: 100px 0 0;
     justify-content: center;
     display: flex;
-    gap: 40px;
+    gap: 10px;
     padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.04em;
 }
 
 .techs__cell {

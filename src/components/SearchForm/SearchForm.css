@@ -1,8 +1,9 @@
 .search-form {
-    padding: 70px 70px 109px;
+    padding: 70px 0 69px;
     border-bottom: solid 1px #424242;
     margin-bottom: 10px;
-    width: 100%;
+    margin-left: 70px;
+    margin-right: 70px;
     box-sizing: border-box;
 }
 
@@ -75,16 +76,19 @@
     }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1000px) {
     .search-form {
-        padding: 80px 30px 109px;
+        padding-top: 80px;
+        padding-bottom: 109px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
 
 @media (max-width: 500px) {
     .search-form {
-        padding-left: 10px;
-        padding-right: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .search-form__form {

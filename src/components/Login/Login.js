@@ -11,6 +11,7 @@ function Login() {
             <main className="login">
                 <SectionForm
                     form="logon"
+                    typeButton="signup"
                     title="Рады видеть!"
                     textButton="Войти"
                     nameButton="signup"

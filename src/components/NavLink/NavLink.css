@@ -10,6 +10,14 @@
 
 .nav-link_type_profile {
     margin-right: 0;
+    text-align: center;
+    width: 100px;
+    background-color: #313131;
+    border-radius: 20px;
+    border: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transition: opacity 0.3s ease;
 }
 
 .nav-link_type_signup {
@@ -18,6 +26,14 @@
 
 .nav-link_type_signin {
     margin-right: 0;
+    width: 76px;
+    background-color: #3ddc84;
+    border-radius: 3px;
+    border: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    transition: opacity 0.3s ease;
 }
 
 .nav-link_text_small {
@@ -44,6 +60,11 @@
 .nav-link_active {
     font-weight: 500;
 }
+@media (hover: hover) and (pointer: fine) {
+    .nav-link_type_signin:hover {
+        opacity: 0.8;
+    }
+}
 
 @media (max-width: 880px) {
     .nav-link {
@@ -60,15 +81,7 @@
         display: block;
     }
 
-    .nav-link_type_profile {
-        padding-bottom: 0;
-    }
-
     .nav-link_type_signup {
-        padding-bottom: 0;
-    }
-
-    .nav-link_type_signin {
         padding-bottom: 0;
     }
 

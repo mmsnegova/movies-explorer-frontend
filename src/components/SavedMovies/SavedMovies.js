@@ -14,6 +14,7 @@ function SavedMovies(props) {
                 activeLinkSavedMovies="active"
                 onNavMenu={props.onNavMenu}
                 isOpenNavMenu={props.isOpenNavMenu}
+                type="saved-movies"
             />
             <main className="saved-movies">
                 <SearchForm />
