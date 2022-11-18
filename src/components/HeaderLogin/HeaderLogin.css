@@ -1,0 +1,78 @@
+.nav-login__links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-login__links-left {
+    display: flex;
+}
+
+.nav-login__link_active {
+    font-weight: 500;
+}
+
+.nav-login__link_color_dark {
+    color: #000;
+}
+
+.nav-login__button-gray {
+    width: 100px;
+    height: 32px;
+    background-color: #313131;
+    border-radius: 20px;
+    border: none;
+    padding: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-login___button-close {
+    display: none;
+    align-self: flex-end;
+    border: none;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    background: url("../../images/delete.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav-login___button-close:hover {
+        opacity: 0.8;
+    }
+    .nav-login__button-gray:hover {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 880px) {
+    .nav-login___button-close {
+        display: block;
+    }
+
+    .nav-login__links {
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .nav-login__links-left {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .nav-login__link_active {
+        border-bottom: 1px solid #fff;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav-login__button {
+        width: 54px;
+        height: 26px;
+    }
+}

@@ -1,0 +1,12 @@
+.animation-link {
+    transition: opacity 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .animation-link:hover {
+        opacity: 0.7;
+    }
+}
