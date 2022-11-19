@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import moviesApi from '../../utils/MoviesApi';
+import api from '../../utils/MainApi';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Main from '../Main/Main';
@@ -25,6 +26,13 @@ function App() {
     useEffect(() => {
         moviesApi
             .getMovies()
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(`Ошибка ${err}`);
+            });
+        api.getSavedMovies()
             .then((res) => {
                 console.log(res);
             })
