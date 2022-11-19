@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import moviesApi from '../../utils/MoviesApi';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Main from '../Main/Main';
@@ -20,6 +21,17 @@ function App() {
     const handleMoreClick = () => {
         setIsMoviesCardsView(!isMoviesCardsView);
     };
+
+    useEffect(() => {
+        moviesApi
+            .getMovies()
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(`Ошибка ${err}`);
+            });
+    });
 
     return (
         <div className="app">
