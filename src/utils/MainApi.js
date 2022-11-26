@@ -1,7 +1,6 @@
 class Api {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl;
-        this._headers = headers;
     }
 
     _handleResponse(res) {
@@ -15,44 +14,59 @@ class Api {
         console.log(err);
     }
 
-    getUserInfo() {
+    /* getUserInfo(token) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
         }).then((res) => this._handleResponse(res));
-    }
+    } */
 
-    setUserInfo({ name, email }) {
+    setUserInfo({ name, email }, token) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({ name, email }),
         }).then((res) => this._handleResponse(res));
     }
 
-    getSavedMovies() {
+    getSavedMovies(token) {
         return fetch(`${this._baseUrl}/movies`, {
             method: 'GET',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
         }).then((res) => this._handleResponse(res));
     }
 
-    createMovie({
-        country,
-        director,
-        duration,
-        year,
-        description,
+    createMovie(
+        {
+            country,
+            director,
+            duration,
+            year,
+            description,
+            trailerLink,
+            nameRU,
+            nameEN,
+        },
         image,
-        trailer,
-        nameRU,
-        nameEN,
         thumbnail,
         movieId,
-    }) {
+        token
+    ) {
         return fetch(`${this._baseUrl}/movies`, {
             method: 'POST',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 country,
                 director,
@@ -60,7 +74,7 @@ class Api {
                 year,
                 description,
                 image,
-                trailer,
+                trailerLink,
                 nameRU,
                 nameEN,
                 thumbnail,
@@ -69,18 +83,18 @@ class Api {
         }).then((res) => this._handleResponse(res));
     }
 
-    deleteMovie(id) {
+    deleteMovie(id, token) {
         return fetch(`${this._baseUrl}/movies/${id} `, {
             method: 'DELETE',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
         }).then((res) => this._handleResponse(res));
     }
 }
 
 const api = new Api({
     baseUrl: 'https://api.movies-explr.msnegova.nomoredomains.icu',
-    headers: {
-        'Content-Type': 'application/json',
-    },
 });
 export default api;

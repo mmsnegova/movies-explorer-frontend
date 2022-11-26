@@ -83,6 +83,17 @@
     line-height: 16px;
 }
 
+.section-form__submit_logon.section-form__submit_inactive {
+    cursor: default;
+    background: #f8f8f8;
+    color: #c2c2c2;
+}
+
+.section-form__submit_profile.section-form__submit_inactive {
+    cursor: default;
+    color: #c2c2c2;
+}
+
 .section-form__spans_profile {
     font-weight: 400;
     font-size: 14px;
@@ -121,6 +132,10 @@
 @media (hover: hover) and (pointer: fine) {
     .section-form__submit:hover {
         opacity: 0.8;
+    }
+
+    .section-form__submit_inactive:hover {
+        opacity: 1;
     }
 }
 @media (max-width: 880px) {

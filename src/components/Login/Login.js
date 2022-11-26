@@ -1,10 +1,21 @@
 import React from 'react';
+import useFormWithValidation from '../../utils/validation';
 import Header from '../Header/Header';
 import LabelWithInput from '../LabelWithInput/LabelWithInput';
 import SectionForm from '../SectionForm/SectionForm';
 import './Login.css';
 
-function Login() {
+function Login(props) {
+    const validation = useFormWithValidation();
+    function handleSubmit(evt) {
+        console.log(validation.values);
+        evt.preventDefault();
+        props.onLogin({
+            ...validation.values,
+        });
+        validation.resetForm();
+    }
+
     return (
         <>
             <Header type="logon" />
@@ -18,18 +29,30 @@ function Login() {
                     span="Ещё не зарегистрированы? "
                     textLink="Регистрация"
                     path="/signup"
+                    onSubmit={handleSubmit}
+                    isValid={validation.isValid}
+                    isDisabled={props.isDisabled}
                 >
                     <LabelWithInput
                         form="logon"
                         type="email"
                         label="E-mail"
                         name="email"
+                        value={validation.values.email || ''}
+                        onChange={validation.handleChange}
+                        typeError={'email'}
+                        error={validation.errors.email}
                     />
                     <LabelWithInput
                         form="logon"
                         type="password"
                         label="Пароль"
                         name="password"
+                        value={validation.values.password || ''}
+                        onChange={validation.handleChange}
+                        typeError={'password'}
+                        error={validation.errors.password}
+                        minLength="3"
                     />
                 </SectionForm>
             </main>

@@ -1,7 +1,11 @@
 import React from 'react';
 import './FilterCheckbox.css';
 
-function FilterCheckbox() {
+function FilterCheckbox(props) {
+    function handleCheckbox() {
+        props.onCheckBox();
+    }
+
     return (
         <fieldset className="filter-checkbox">
             <input
@@ -9,7 +13,8 @@ function FilterCheckbox() {
                 type="checkbox"
                 name="short-film"
                 id="short-film"
-                defaultChecked
+                defaultChecked={props.isCheckbox}
+                onClick={handleCheckbox}
             />
             <label className="filter-checkbox__label" htmlFor="short-film">
                 Короткометражки

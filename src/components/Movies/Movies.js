@@ -4,9 +4,11 @@ import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
+import useSerchMovies from '../../utils/serchMovies';
 import './Movies.css';
 
 function Movies(props) {
+    const serchMovies = useSerchMovies(props.search, props.movies);
     return (
         <>
             <HeaderLogin
@@ -14,15 +16,43 @@ function Movies(props) {
                 onNavMenu={props.onNavMenu}
                 isOpenNavMenu={props.isOpenNavMenu}
                 type="movies"
+                onUpdateSavedMovies={props.updateSavedMovies}
+                isUpdate={true}
             />
             <main className="movies">
-                <SearchForm />
-                <Preloader />
-                <MoviesCardList
-                    onMoviesCard={props.onMoviesCard}
-                    isViewMoviesCards={props.isViewMoviesCards}
-                    button="movies-card__button_like"
+                <SearchForm
+                    onGetMovies={props.onGetMovies}
+                    setSearch={props.setSearch}
+                    search={props.search}
+                    onCheckBox={props.onCheckBox}
+                    isCheckbox={props.isCheckbox}
+                    setIsLoading={props.setIsLoading}
+                    errorSearch={props.errorSearch}
                 />
+                {props.isLoading ? (
+                    <Preloader />
+                ) : (
+                    <MoviesCardList
+                        isViewMore={props.isViewMore}
+                        winWidth={props.winWidth}
+                        onMoviesCard={props.onMoviesCard}
+                        quantityMoviesOnPage={props.quantityMoviesOnPage}
+                        quantityMoreMovies={props.quantityMoreMovies}
+                        quantityClickButtonMore={props.quantityClickButtonMore}
+                        onQuantityClickButtonMore={
+                            props.onQuantityClickButtonMore
+                        }
+                        movies={props.movies}
+                        savedMovies={props.savedMovies}
+                        isSaved={false}
+                        onMovieLike={props.onMovieLike}
+                        onMovieDelete={props.onMovieDelete}
+                        search={props.search}
+                        errorGetMovies={
+                            props.errorGetMovies || serchMovies.errorGetMovies
+                        }
+                    />
+                )}
             </main>
             <Footer />
         </>

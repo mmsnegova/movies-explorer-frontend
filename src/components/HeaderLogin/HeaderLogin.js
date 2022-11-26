@@ -18,6 +18,8 @@ function HeaderLogin(props) {
                                 name="main"
                                 size="medium"
                                 title="Главная"
+                                active={props.activeLinkMain}
+                                onNavMenu={props.onNavMenu}
                             />
                         </AnimationLink>
                         <AnimationLink>
@@ -27,6 +29,7 @@ function HeaderLogin(props) {
                                 size="medium"
                                 title="Фильмы"
                                 active={props.activeLinkMovies}
+                                onNavMenu={props.onNavMenu}
                             />
                         </AnimationLink>
                         <AnimationLink>
@@ -36,6 +39,7 @@ function HeaderLogin(props) {
                                 size="medium"
                                 title="Сохранённые фильмы"
                                 active={props.activeLinkSavedMovies}
+                                onNavMenu={props.onNavMenu}
                             />
                         </AnimationLink>
                     </div>
@@ -44,6 +48,7 @@ function HeaderLogin(props) {
                         name="profile"
                         size="large"
                         title="Аккаунт"
+                        onNavMenu={props.onNavMenu}
                     />
                 </div>
                 <button

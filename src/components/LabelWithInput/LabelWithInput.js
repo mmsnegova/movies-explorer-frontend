@@ -1,4 +1,5 @@
 import React from 'react';
+import Error from '../Error/Error';
 import './LabelWithInput.css';
 
 function LabelWithInput(props) {
@@ -12,8 +13,14 @@ function LabelWithInput(props) {
                     className={`label-with-input__input label-with-input__input_${props.form} label-with-input__input_${props.name}`}
                     type={props.type}
                     name={props.name}
-                    defaultValue={props.defaultValue}
+                    value={props.value}
+                    onChange={props.onChange}
+                    id={props.name}
+                    required
+                    minLength={props.minLength}
+                    maxLength={props.maxLength}
                 />
+                {props.error && <Error type={props.form} error={props.error} />}
             </label>
         </>
     );

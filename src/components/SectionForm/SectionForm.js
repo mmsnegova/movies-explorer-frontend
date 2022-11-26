@@ -4,9 +4,20 @@ import AnimationLink from '../AnimationLink/AnimationLink';
 import './SectionForm.css';
 
 function SectionForm(props) {
+    console.log(props.isValid || props.isDisabled);
+    const classNameButtonSubmit = `section-form__submit section-form__submit_${
+        props.form
+    } ${
+        props.isValid && !props.isDisabled
+            ? ''
+            : 'section-form__submit_inactive'
+    }`;
     return (
-        <section className={`section-form section-form_${props.form}`}>
-            <form className="section-form__form">
+        <section className={`section-form section-form_${props.form} `}>
+            <form
+                className={`section-form__form section-form__form_${props.form}`}
+                onSubmit={props.onSubmit}
+            >
                 <div>
                     <h2
                         className={`section-form__title section-form__title_${props.form}`}
@@ -19,8 +30,9 @@ function SectionForm(props) {
                     className={`section-form__buttons section-form__buttons_1${props.type}`}
                 >
                     <button
-                        className={`section-form__submit section-form__submit_${props.form}`}
+                        className={classNameButtonSubmit}
                         type="submit"
+                        disabled={!props.isValid}
                     >
                         {props.textButton}
                     </button>
@@ -30,6 +42,7 @@ function SectionForm(props) {
                         <span>{props.span}</span>
                         <AnimationLink>
                             <Link
+                                onClick={props.onSignOut}
                                 to={props.path}
                                 className={`section-form__link section-form__link_${props.form}  section-form__link_${props.nameButton}`}
                             >
