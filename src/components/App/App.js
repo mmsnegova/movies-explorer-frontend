@@ -14,7 +14,6 @@ import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import * as auth from '../../utils/auth';
-import MainPreloader from '../MainPreloader/MainPreloader';
 function App() {
     const history = useHistory();
     const [loggedIn, setLoggedIn] = useState(false);
@@ -404,87 +403,69 @@ function App() {
                                 isDisabled={isDisabled}
                             />
                         </Route>
-                        {loggedIn ? (
-                            <ProtectedRoute
-                                path="/movies"
-                                loggedIn={loggedIn}
-                                onNavMenu={handleNavMenuClick}
-                                winWidth={winWidth}
-                                isOpenNavMenu={isNavMenuOpen}
-                                onCheckBox={handleCheckBox}
-                                isCheckbox={isCheckbox}
-                                quantityMoviesOnPage={quantityMoviesOnPage}
-                                quantityMoreMovies={quantityMoreMovies}
-                                quantityClickButtonMore={
-                                    quantityClickButtonMore
-                                }
-                                onQuantityClickButtonMore={
-                                    addQuantityClickButtonMore
-                                }
-                                movies={filterMovies}
-                                savedMovies={savedMovies}
-                                onGetMovies={handleLoadingMovies}
-                                onMovieLike={handleCreateMovie}
-                                onMovieDelete={handleDeleteMovie}
-                                setSearch={setSearch}
-                                isLoading={isLoading}
-                                search={search}
-                                isViewMore={isViewMore}
-                                errorSearch={errorSearch}
-                                errorGetMovies={errorGetMovies}
-                                component={Movies}
-                            />
-                        ) : (
-                            <MainPreloader />
-                        )}
-                        {loggedIn ? (
-                            <ProtectedRoute
-                                path="/saved-movies"
-                                loggedIn={loggedIn}
-                                onNavMenu={handleNavMenuClick}
-                                isOpenNavMenu={isNavMenuOpen}
-                                onCheckBox={handleSavedCheckBox}
-                                isCheckbox={isSavedCheckbox}
-                                onGetMovies={handleLoadingSavedMovies}
-                                movies={filterSavedMovies}
-                                savedMovies={savedMovies}
-                                onMovieDelete={handleDeleteMovie}
-                                setSearch={setSearchSaved}
-                                isLoading={isLoading}
-                                search={searchSaved}
-                                errorSearch={errorSearch}
-                                errorGetMovies={errorGetMovies}
-                                component={SavedMovies}
-                            />
-                        ) : (
-                            <MainPreloader />
-                        )}
-                        {loggedIn ? (
-                            <ProtectedRoute
-                                path="/profile"
-                                loggedIn={loggedIn}
-                                onNavMenu={handleNavMenuClick}
-                                isOpenNavMenu={isNavMenuOpen}
-                                onUpdateUser={handleUpdateUser}
-                                onSignOut={onSignOut}
-                                name={currentUser.name}
-                                email={currentUser.email}
-                                formSelector="profile"
-                                isDisabled={isDisabled}
-                                component={Profile}
-                            />
-                        ) : (
-                            <MainPreloader />
-                        )}
-                        {loggedIn ? (
-                            <ProtectedRoute
-                                path="/*"
-                                loggedIn={loggedIn}
-                                component={PageNotFound}
-                            />
-                        ) : (
-                            <MainPreloader />
-                        )}
+                        <ProtectedRoute
+                            path="/movies"
+                            loggedIn={loggedIn}
+                            onNavMenu={handleNavMenuClick}
+                            winWidth={winWidth}
+                            isOpenNavMenu={isNavMenuOpen}
+                            onCheckBox={handleCheckBox}
+                            isCheckbox={isCheckbox}
+                            quantityMoviesOnPage={quantityMoviesOnPage}
+                            quantityMoreMovies={quantityMoreMovies}
+                            quantityClickButtonMore={quantityClickButtonMore}
+                            onQuantityClickButtonMore={
+                                addQuantityClickButtonMore
+                            }
+                            movies={filterMovies}
+                            savedMovies={savedMovies}
+                            onGetMovies={handleLoadingMovies}
+                            onMovieLike={handleCreateMovie}
+                            onMovieDelete={handleDeleteMovie}
+                            setSearch={setSearch}
+                            isLoading={isLoading}
+                            search={search}
+                            isViewMore={isViewMore}
+                            errorSearch={errorSearch}
+                            errorGetMovies={errorGetMovies}
+                            component={Movies}
+                        />
+                        <ProtectedRoute
+                            path="/saved-movies"
+                            loggedIn={loggedIn}
+                            onNavMenu={handleNavMenuClick}
+                            isOpenNavMenu={isNavMenuOpen}
+                            onCheckBox={handleSavedCheckBox}
+                            isCheckbox={isSavedCheckbox}
+                            onGetMovies={handleLoadingSavedMovies}
+                            movies={filterSavedMovies}
+                            savedMovies={savedMovies}
+                            onMovieDelete={handleDeleteMovie}
+                            setSearch={setSearchSaved}
+                            isLoading={isLoading}
+                            search={searchSaved}
+                            errorSearch={errorSearch}
+                            errorGetMovies={errorGetMovies}
+                            component={SavedMovies}
+                        />
+                        <ProtectedRoute
+                            path="/profile"
+                            loggedIn={loggedIn}
+                            onNavMenu={handleNavMenuClick}
+                            isOpenNavMenu={isNavMenuOpen}
+                            onUpdateUser={handleUpdateUser}
+                            onSignOut={onSignOut}
+                            name={currentUser.name}
+                            email={currentUser.email}
+                            formSelector="profile"
+                            isDisabled={isDisabled}
+                            component={Profile}
+                        />
+                        <ProtectedRoute
+                            path="/*"
+                            loggedIn={loggedIn}
+                            component={PageNotFound}
+                        />
                     </Switch>
                 </div>
                 <InfoTooltip
