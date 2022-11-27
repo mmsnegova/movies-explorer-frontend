@@ -106,7 +106,6 @@ function App() {
 
     const handleSavedCheckBox = () => {
         setIsSavedCheckbox(!isSavedCheckbox);
-        console.log(isSavedCheckbox);
     };
 
     const handleCheckViewMore = () => {
@@ -203,7 +202,6 @@ function App() {
         localStorage.removeItem('search');
         localStorage.removeItem('isCheckbox');
         localStorage.removeItem('movies');
-        console.log(isCheckbox);
         history.push('/');
     }
 
@@ -212,7 +210,6 @@ function App() {
             ? api
                   .getSavedMovies(token)
                   .then((res) => {
-                      console.log('обновление');
                       setSavedMovies(res);
                   })
                   .catch(() => {
@@ -222,42 +219,37 @@ function App() {
     }
 
     function handleCreateMovie(movie) {
-        if (localStorage.getItem('token') === token) {
-            return api
-                .createMovie(
-                    movie,
-                    `${baseUrl}${movie.image.url}`,
-                    `${baseUrl}${movie.image.formats.thumbnail.url}`,
-                    movie.id,
-                    token
-                )
-                .then((res) => {
-                    console.log(res);
-                    setFilterSavedMovies([...filterSavedMovies, res]);
-                    handleGetSavedMovies();
-                })
-                .catch(() => {
-                    console.log('Что-то пошло не так! Попробуйте ещё раз.');
-                });
-        } else onSignOut();
+        return api
+            .createMovie(
+                movie,
+                `${baseUrl}${movie.image.url}`,
+                `${baseUrl}${movie.image.formats.thumbnail.url}`,
+                movie.id,
+                token
+            )
+            .then((res) => {
+                setFilterSavedMovies([...filterSavedMovies, res]);
+                handleGetSavedMovies();
+            })
+            .catch(() => {
+                console.log('Что-то пошло не так! Попробуйте ещё раз.');
+            });
     }
 
     function handleDeleteMovie(movie) {
-        if (localStorage.getItem('token') === token) {
-            setFilterSavedMovies(
-                filterSavedMovies.filter((savedMovie) => {
-                    return savedMovie._id !== movie._id;
-                })
-            );
-            return api
-                .deleteMovie(movie._id, token)
-                .then(() => {
-                    handleGetSavedMovies();
-                })
-                .catch(() => {
-                    console.log('Что-то пошло не так! Попробуйте ещё раз.');
-                });
-        } else onSignOut();
+        setFilterSavedMovies(
+            filterSavedMovies.filter((savedMovie) => {
+                return savedMovie._id !== movie._id;
+            })
+        );
+        return api
+            .deleteMovie(movie._id, token)
+            .then(() => {
+                handleGetSavedMovies();
+            })
+            .catch(() => {
+                console.log('Что-то пошло не так! Попробуйте ещё раз.');
+            });
     }
 
     const handleLoadingMovies = () => {
@@ -314,7 +306,6 @@ function App() {
     };
 
     function handleSerchSavedMovis() {
-        console.log(searchSaved !== '');
         if (searchSaved !== '') {
             if (isSavedCheckbox) {
                 setFilterSavedMovies(
@@ -437,6 +428,8 @@ function App() {
                             isViewMore={isViewMore}
                             errorSearch={errorSearch}
                             errorGetMovies={errorGetMovies}
+                            token={token}
+                            onSignOut={onSignOut}
                             component={Movies}
                         />
                         <ProtectedRoute
@@ -455,6 +448,8 @@ function App() {
                             search={searchSaved}
                             errorSearch={errorSearch}
                             errorGetMovies={errorGetMovies}
+                            token={token}
+                            onSignOut={onSignOut}
                             component={SavedMovies}
                         />
                         <ProtectedRoute

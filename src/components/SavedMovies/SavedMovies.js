@@ -40,6 +40,8 @@ function SavedMovies(props) {
                         savedMovies={props.savedMovies}
                         onMovieDelete={props.onMovieDelete}
                         errorGetMovies={serchMovies.errorGetMovies}
+                        token={props.token}
+                        onSignOut={props.onSignOut}
                     />
                 )}
             </main>

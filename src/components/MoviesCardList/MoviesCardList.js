@@ -60,6 +60,8 @@ function MoviesCardList(props) {
                                         onMovieLike={props.onMovieLike}
                                         onMovieDelete={props.onMovieDelete}
                                         isSaved={props.isSaved}
+                                        token={props.token}
+                                        onSignOut={props.onSignOut}
                                     />
                                 </li>
                             );

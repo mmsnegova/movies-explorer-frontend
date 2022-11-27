@@ -12,22 +12,24 @@ function MoviesCard(props) {
     const min = props.duration % 60;
 
     function handleCardLike() {
-        if (!isLiked && !props.isSaved) {
-            setIsDisabled(true);
-            props.onMovieLike(props.movie, isLiked).finally(() => {
-                setIsDisabled(false);
-            });
-        } else {
-            const movie = props.savedMovies.find(
-                (movie) =>
-                    movie.movieId === props.movie.id ||
-                    movie.movieId === props.movie.movieId
-            );
-            setIsDisabled(true);
-            props.onMovieDelete(movie).finally(() => {
-                setIsDisabled(false);
-            });
-        }
+        if (localStorage.getItem('token') === props.token) {
+            if (!isLiked && !props.isSaved) {
+                setIsDisabled(true);
+                props.onMovieLike(props.movie, isLiked).finally(() => {
+                    setIsDisabled(false);
+                });
+            } else {
+                const movie = props.savedMovies.find(
+                    (movie) =>
+                        movie.movieId === props.movie.id ||
+                        movie.movieId === props.movie.movieId
+                );
+                setIsDisabled(true);
+                props.onMovieDelete(movie).finally(() => {
+                    setIsDisabled(false);
+                });
+            }
+        } else props.onSignOut();
     }
 
     return (

@@ -8,7 +8,6 @@ import './Login.css';
 function Login(props) {
     const validation = useFormWithValidation();
     function handleSubmit(evt) {
-        console.log(validation.values);
         evt.preventDefault();
         props.onLogin({
             ...validation.values,

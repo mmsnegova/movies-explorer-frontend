@@ -4,7 +4,6 @@ import AnimationLink from '../AnimationLink/AnimationLink';
 import './SectionForm.css';
 
 function SectionForm(props) {
-    console.log(props.isValid || props.isDisabled);
     const classNameButtonSubmit = `section-form__submit section-form__submit_${
         props.form
     } ${

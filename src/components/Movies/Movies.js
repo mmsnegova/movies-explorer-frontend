@@ -51,6 +51,8 @@ function Movies(props) {
                         errorGetMovies={
                             props.errorGetMovies || serchMovies.errorGetMovies
                         }
+                        token={props.token}
+                        onSignOut={props.onSignOut}
                     />
                 )}
             </main>

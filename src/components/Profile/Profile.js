@@ -28,7 +28,6 @@ function Profile(props) {
     });
 
     function handleSubmit(evt) {
-        console.log(validation.values);
         evt.preventDefault();
         props.onUpdateUser({
             ...validation.values,
