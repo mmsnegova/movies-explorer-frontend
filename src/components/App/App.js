@@ -14,7 +14,6 @@ import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import * as auth from '../../utils/auth';
-import useFormWithValidation from '../../utils/validation';
 import MainPreloader from '../MainPreloader/MainPreloader';
 function App() {
     const history = useHistory();
@@ -177,11 +176,18 @@ function App() {
                 setToken(res.token);
                 setLoggedIn(true);
                 setIsDisabled(false);
+                setIsCheckbox(true);
+                setIsSavedCheckbox(true);
+                setErrorGetMovies('');
+                setSearch('');
+                setSearchSaved('');
+                setFilterMovies([]);
+                setFilterSavedMovies([]);
+                setSavedMovies([]);
                 history.push('/movies');
             })
             .catch(() => {
                 handleRespons('Что-то пошло не так...');
-
                 handleInfoTooltipResponse();
             })
             .finally(() => {
@@ -329,22 +335,21 @@ function App() {
 
     useEffect(() => {
         if (loggedIn) {
-            history.push('/movies');
-            Promise.all([api.getSavedMovies(token), moviesApi.getMovies()])
-                .then(([savedMovies, movies]) => {
+            Promise.all([
+                api.getSavedMovies(token),
+                moviesApi.getMovies(),
+                auth.getContent(token),
+            ])
+                .then(([savedMovies, movies, userData]) => {
                     setFilterSavedMovies(savedMovies);
                     setSavedMovies(savedMovies);
                     setMovies(movies);
-                    setErrorGetMovies('');
-                    console.log(savedMovies);
+                    console.log(movies);
                 })
                 .catch(() => {
                     setErrorGetMovies(
                         'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз'
                     );
-                })
-                .finally(() => {
-                    history.push('/movies');
                 });
         }
     }, [loggedIn]);
@@ -361,6 +366,10 @@ function App() {
                 }
             });
         }
+    }, [loggedIn]);
+
+    useEffect(() => {
+        if (loggedIn) history.push('/movies');
     }, [loggedIn]);
 
     useEffect(() => {
