@@ -263,10 +263,12 @@ function App() {
             localStorage.setItem(
                 'movies',
                 JSON.stringify(
-                    movies.filter((movie) =>
-                        movie.nameRU
-                            .toLowerCase()
-                            .includes(search.toLowerCase())
+                    movies.filter(
+                        (movie) =>
+                            movie.nameRU
+                                .toLowerCase()
+                                .includes(search.toLowerCase()) &&
+                            movie.duration > 40
                     )
                 )
             );
@@ -317,10 +319,12 @@ function App() {
             );
         } else {
             setFilterSavedMovies(
-                savedMovies.filter((movie) =>
-                    movie.nameRU
-                        .toLowerCase()
-                        .includes(searchSaved.toLowerCase())
+                savedMovies.filter(
+                    (movie) =>
+                        movie.nameRU
+                            .toLowerCase()
+                            .includes(searchSaved.toLowerCase()) &&
+                        movie.duration > 40
                 )
             );
         }
