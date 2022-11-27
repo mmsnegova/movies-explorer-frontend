@@ -344,7 +344,7 @@ function App() {
                     setFilterSavedMovies(savedMovies);
                     setSavedMovies(savedMovies);
                     setMovies(movies);
-                    console.log(movies);
+                    setCurrentUser(userData);
                 })
                 .catch(() => {
                     setErrorGetMovies(
