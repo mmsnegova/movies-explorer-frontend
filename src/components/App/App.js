@@ -349,24 +349,6 @@ function App() {
         }
     }, [loggedIn]);
 
-    /*  useEffect(() => {
-        if (loggedIn) {
-            Promise.all([api.getSavedMovies(token), moviesApi.getMovies()])
-                .then(([savedMovies, movies]) => {
-                    setSavedMovies(savedMovies);
-                    setFilterSavedMovies(savedMovies);
-                    setMovies(movies);
-                    setErrorGetMovies('');
-                    console.log(filterSavedMovies);
-                })
-                .catch(() => {
-                    setErrorGetMovies(
-                        'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз'
-                    );
-                });
-        }
-    }, [loggedIn]); */
-
     useEffect(() => {
         if (token) {
             auth.getContent(token).then((res) => {
