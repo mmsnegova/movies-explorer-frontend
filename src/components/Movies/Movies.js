@@ -4,11 +4,11 @@ import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import useSerchMovies from '../../utils/serchMovies';
+import useSerchMovies from '../../utils/useErrorSearchMovies';
 import './Movies.css';
 
 function Movies(props) {
-    const serchMovies = useSerchMovies(props.search, props.movies);
+    const searchMovies = useSerchMovies(props.search, props.movies);
     return (
         <>
             <HeaderLogin
@@ -49,7 +49,7 @@ function Movies(props) {
                         onMovieDelete={props.onMovieDelete}
                         search={props.search}
                         errorGetMovies={
-                            props.errorGetMovies || serchMovies.errorGetMovies
+                            props.errorGetMovies || searchMovies.errorGetMovies
                         }
                         token={props.token}
                         onSignOut={props.onSignOut}

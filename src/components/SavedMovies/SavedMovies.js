@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import HeaderLogin from '../HeaderLogin/HeaderLogin';
 import SearchForm from '../SearchForm/SearchForm';
-import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import useSerchMovies from '../../utils/serchMovies';
+import useSerchMovies from '../../utils/useErrorSearchMovies';
 
 import './SavedMovies.css';
 
 function SavedMovies(props) {
-    const serchMovies = useSerchMovies(props.search, props.movies);
+    const searchMovies = useSerchMovies(props.search, props.movies);
     return (
         <>
             <HeaderLogin
@@ -29,21 +28,17 @@ function SavedMovies(props) {
                     isCheckbox={props.isCheckbox}
                     errorSearch={props.errorSearch}
                 />
-                {props.isLoading ? (
-                    <Preloader />
-                ) : (
-                    <MoviesCardList
-                        cursor="movies-card_cursor_pointer"
-                        button="movies-card__button_delete"
-                        isSaved={true}
-                        movies={props.movies}
-                        savedMovies={props.savedMovies}
-                        onMovieDelete={props.onMovieDelete}
-                        errorGetMovies={serchMovies.errorGetMovies}
-                        token={props.token}
-                        onSignOut={props.onSignOut}
-                    />
-                )}
+                <MoviesCardList
+                    cursor="movies-card_cursor_pointer"
+                    button="movies-card__button_delete"
+                    isSaved={true}
+                    movies={props.movies}
+                    savedMovies={props.savedMovies}
+                    onMovieDelete={props.onMovieDelete}
+                    errorGetMovies={searchMovies.errorGetMovies}
+                    token={props.token}
+                    onSignOut={props.onSignOut}
+                />
             </main>
             <Footer />
         </>

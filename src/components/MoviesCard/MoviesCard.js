@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './MoviesCard.css';
 
 function MoviesCard(props) {
@@ -10,10 +10,6 @@ function MoviesCard(props) {
     const baseUrl = 'https://api.nomoreparties.co/';
     const hour = Math.floor(props.duration / 60);
     const min = props.duration % 60;
-
-    useEffect(() => {
-        console.log(isDisabled);
-    }, [isDisabled]);
 
     function handleCardLike() {
         if (localStorage.getItem('token') === props.token) {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useSerchMovies(search, movies) {
+export default function useErrorSearchMovies(search, movies) {
     const [errorGetMovies, setErrorGetMovies] = useState('');
     useEffect(() => {
         if (search) {
@@ -9,8 +9,6 @@ export default function useSerchMovies(search, movies) {
             } else {
                 setErrorGetMovies('');
             }
-        } else {
-            setErrorGetMovies('');
         }
     }, [movies]);
 

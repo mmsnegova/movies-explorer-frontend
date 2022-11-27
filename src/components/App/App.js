@@ -19,7 +19,6 @@ function App() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [token, setToken] = useState(localStorage.getItem('token'));
     const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
-    const [isMoviesCardsView, setIsMoviesCardsView] = useState(false);
     const [quantityMoviesOnPage, setQuantityMoviesOnPage] = useState(2);
     const [quantityMoreMovies, setQuantityMoreMovies] = useState(2);
     const [quantityClickButtonMore, setQuantityClickButtonMore] = useState(0);
@@ -33,13 +32,12 @@ function App() {
     );
     const [isSavedCheckbox, setIsSavedCheckbox] = useState(true);
     const [isViewMore, setIsViewMore] = useState(false);
-    const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [filterMovies, setFilterMovies] = useState(
         JSON.parse(localStorage.getItem('movies'))
     );
-    const [errorSearch, setErrorSearch] = useState('');
-    const [errorGetMovies, setErrorGetMovies] = useState('');
+    const [errorSearch, setErrorSearch] = useState(null);
+    const [errorGetMovies, setErrorGetMovies] = useState(null);
     const [savedMovies, setSavedMovies] = useState([]);
     const [filterSavedMovies, setFilterSavedMovies] = useState([]);
     const baseUrl = 'https://api.nomoreparties.co';
@@ -245,12 +243,12 @@ function App() {
             });
     }
 
-    const handleFilterMoviesBeatFilm = () => {
+    const handleFilterMoviesBeatFilm = (res) => {
         if (isCheckbox) {
             localStorage.setItem(
                 'movies',
                 JSON.stringify(
-                    movies.filter(
+                    res.filter(
                         (movie) =>
                             movie.nameRU
                                 .toLowerCase()
@@ -263,7 +261,7 @@ function App() {
             localStorage.setItem(
                 'movies',
                 JSON.stringify(
-                    movies.filter(
+                    res.filter(
                         (movie) =>
                             movie.nameRU
                                 .toLowerCase()
@@ -280,9 +278,8 @@ function App() {
         setIsLoading(true);
         moviesApi
             .getMovies()
-            .then((movies) => {
-                setMovies(movies);
-                handleFilterMoviesBeatFilm();
+            .then((res) => {
+                handleFilterMoviesBeatFilm(res);
             })
             .catch(() => {
                 setErrorGetMovies(
@@ -295,7 +292,6 @@ function App() {
     };
 
     const handleSearchMoviesBeatFilm = () => {
-        setIsMoviesCardsView(false);
         setQuantityClickButtonMore(0);
         if (search !== '') {
             getMoviesBeatFilm();
