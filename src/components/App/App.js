@@ -414,7 +414,6 @@ function App() {
                                 }
                                 movies={filterMovies}
                                 savedMovies={savedMovies}
-                                /* movies={movies} */
                                 onGetMovies={handleLoadingMovies}
                                 onMovieLike={handleCreateMovie}
                                 onMovieDelete={handleDeleteMovie}
