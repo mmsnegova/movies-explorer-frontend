@@ -54,6 +54,7 @@ function Login(props) {
                         typeError={'password'}
                         error={validation.errors.password}
                         minLength="8"
+                        maxLength="16"
                     />
                 </SectionForm>
             </main>
