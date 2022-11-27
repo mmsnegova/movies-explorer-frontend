@@ -30,11 +30,7 @@ function SearchForm(props) {
                         onChange={handleChangeSerch}
                     />
                     {!props.search && props.errorSearch && (
-                        <Error
-                            message={props.message}
-                            type="search"
-                            error={props.errorSearch}
-                        />
+                        <Error type="search" error={props.errorSearch} />
                     )}
                     <button className="search-form__submit" type="submit" />
                 </fieldset>

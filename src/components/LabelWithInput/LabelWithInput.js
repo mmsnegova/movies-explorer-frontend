@@ -10,7 +10,11 @@ function LabelWithInput(props) {
             >
                 {props.label}
                 <input
-                    className={`label-with-input__input label-with-input__input_${props.form} label-with-input__input_${props.name}`}
+                    className={`label-with-input__input label-with-input__input_${
+                        props.form
+                    } label-with-input__input_${props.name} ${
+                        props.error && 'label-with-input__input_invalid'
+                    }`}
                     type={props.type}
                     name={props.name}
                     value={props.value}

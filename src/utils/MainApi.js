@@ -14,7 +14,7 @@ class Api {
         console.log(err);
     }
 
-    /* getUserInfo(token) {
+    getUserInfo(token) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',
             headers: {
@@ -22,7 +22,7 @@ class Api {
                 'Content-Type': 'application/json',
             },
         }).then((res) => this._handleResponse(res));
-    } */
+    }
 
     setUserInfo({ name, email }, token) {
         return fetch(`${this._baseUrl}/users/me`, {
