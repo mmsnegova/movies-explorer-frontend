@@ -126,20 +126,22 @@ function App() {
     };
 
     function handleUpdateUser({ email, name }) {
-        setIsDisabled(true);
-        api.setUserInfo({ email, name }, token)
-            .then((res) => {
-                setCurrentUser(res);
-                handleRespons('Данные успешно обновлены!');
-            })
-            .catch(() => {
-                handleRespons('При обновлении профиля произошла ошибка.');
-            })
-            .finally(() => {
-                handleInfoTooltipResponse();
-            });
+        if (localStorage.getItem('token') === token) {
+            setIsDisabled(true);
+            api.setUserInfo({ email, name }, token)
+                .then((res) => {
+                    setCurrentUser(res);
+                    handleRespons('Данные успешно обновлены!');
+                })
+                .catch(() => {
+                    handleRespons('При обновлении профиля произошла ошибка.');
+                })
+                .finally(() => {
+                    handleInfoTooltipResponse();
+                });
 
-        setIsDisabled(false);
+            setIsDisabled(false);
+        } else onSignOut();
     }
 
     function handleRespons(message) {
@@ -206,49 +208,56 @@ function App() {
     }
 
     function handleGetSavedMovies() {
-        api.getSavedMovies(token)
-            .then((res) => {
-                console.log('обновление');
-                setSavedMovies(res);
-            })
-            .catch(() => {
-                console.log('Что-то пошло не так! Попробуйте ещё раз.');
-            });
+        localStorage.getItem('token') === token
+            ? api
+                  .getSavedMovies(token)
+                  .then((res) => {
+                      console.log('обновление');
+                      setSavedMovies(res);
+                  })
+                  .catch(() => {
+                      console.log('Что-то пошло не так! Попробуйте ещё раз.');
+                  })
+            : onSignOut();
     }
 
     function handleCreateMovie(movie) {
-        return api
-            .createMovie(
-                movie,
-                `${baseUrl}${movie.image.url}`,
-                `${baseUrl}${movie.image.formats.thumbnail.url}`,
-                movie.id,
-                token
-            )
-            .then((res) => {
-                console.log(res);
-                setFilterSavedMovies([...filterSavedMovies, res]);
-                handleGetSavedMovies();
-            })
-            .catch(() => {
-                console.log('Что-то пошло не так! Попробуйте ещё раз.');
-            });
+        if (localStorage.getItem('token') === token) {
+            return api
+                .createMovie(
+                    movie,
+                    `${baseUrl}${movie.image.url}`,
+                    `${baseUrl}${movie.image.formats.thumbnail.url}`,
+                    movie.id,
+                    token
+                )
+                .then((res) => {
+                    console.log(res);
+                    setFilterSavedMovies([...filterSavedMovies, res]);
+                    handleGetSavedMovies();
+                })
+                .catch(() => {
+                    console.log('Что-то пошло не так! Попробуйте ещё раз.');
+                });
+        } else onSignOut();
     }
 
     function handleDeleteMovie(movie) {
-        setFilterSavedMovies(
-            filterSavedMovies.filter((savedMovie) => {
-                return savedMovie._id !== movie._id;
-            })
-        );
-        return api
-            .deleteMovie(movie._id, token)
-            .then(() => {
-                handleGetSavedMovies();
-            })
-            .catch(() => {
-                console.log('Что-то пошло не так! Попробуйте ещё раз.');
-            });
+        if (localStorage.getItem('token') === token) {
+            setFilterSavedMovies(
+                filterSavedMovies.filter((savedMovie) => {
+                    return savedMovie._id !== movie._id;
+                })
+            );
+            return api
+                .deleteMovie(movie._id, token)
+                .then(() => {
+                    handleGetSavedMovies();
+                })
+                .catch(() => {
+                    console.log('Что-то пошло не так! Попробуйте ещё раз.');
+                });
+        } else onSignOut();
     }
 
     const handleLoadingMovies = () => {
