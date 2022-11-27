@@ -3,6 +3,7 @@ import useFormWithValidation from '../../utils/validation';
 import Header from '../Header/Header';
 import LabelWithInput from '../LabelWithInput/LabelWithInput';
 import SectionForm from '../SectionForm/SectionForm';
+import { regex } from '../../utils/constants';
 import './Login.css';
 
 function Login(props) {
@@ -41,6 +42,7 @@ function Login(props) {
                         onChange={validation.handleChange}
                         typeError={'email'}
                         error={validation.errors.email}
+                        pattern={regex.email}
                     />
                     <LabelWithInput
                         form="logon"
@@ -51,7 +53,7 @@ function Login(props) {
                         onChange={validation.handleChange}
                         typeError={'password'}
                         error={validation.errors.password}
-                        minLength="3"
+                        minLength="8"
                     />
                 </SectionForm>
             </main>

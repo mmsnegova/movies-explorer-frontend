@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 import useFormWithValidation from '../../utils/validation';
 import HeaderLogin from '../HeaderLogin/HeaderLogin';
 import LabelWithInput from '../LabelWithInput/LabelWithInput';
 import SectionForm from '../SectionForm/SectionForm';
+import { regex } from '../../utils/constants';
 import './Profile.css';
 
 function Profile(props) {
@@ -67,6 +68,7 @@ function Profile(props) {
                         maxLength="30"
                         error={validation.errors.name}
                         defaultValue={props.name}
+                        pattern={regex.name}
                     />
                     <LabelWithInput
                         form="profile"
@@ -78,6 +80,7 @@ function Profile(props) {
                         typeError={'email'}
                         error={validation.errors.email}
                         defaultValue={props.email}
+                        pattern={regex.email}
                     />
                 </SectionForm>
             </main>

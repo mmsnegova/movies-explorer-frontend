@@ -23,6 +23,7 @@ function LabelWithInput(props) {
                     required
                     minLength={props.minLength}
                     maxLength={props.maxLength}
+                    pattern={props.pattern}
                 />
                 {props.error && <Error type={props.form} error={props.error} />}
             </label>

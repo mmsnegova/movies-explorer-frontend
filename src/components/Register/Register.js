@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import useFormWithValidation from '../../utils/validation';
 import LabelWithInput from '../LabelWithInput/LabelWithInput';
 import SectionForm from '../SectionForm/SectionForm';
+import { regex } from '../../utils/constants';
 import './Register.css';
 
 function Register(props) {
@@ -43,6 +44,7 @@ function Register(props) {
                     minLength="2"
                     maxLength="30"
                     error={validation.errors.name}
+                    pattern={regex.name}
                 />
 
                 <LabelWithInput
@@ -54,6 +56,7 @@ function Register(props) {
                     onChange={validation.handleChange}
                     typeError={'email'}
                     error={validation.errors.email}
+                    pattern={regex.email}
                 />
                 <LabelWithInput
                     form={'logon'}
@@ -64,7 +67,7 @@ function Register(props) {
                     onChange={validation.handleChange}
                     typeError={'password'}
                     error={validation.errors.password}
-                    minLength="3"
+                    minLength="8"
                 />
             </SectionForm>
         </>
