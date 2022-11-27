@@ -86,13 +86,4 @@
     .tooltip__content_center {
         padding: 50px 18px;
     }
-
-    .tooltip__title {
-        font-size: 18px;
-        line-height: 22px;
-    }
-
-    /*     .tooltip__title_large {
-        font-size: 20px;
-    } */
 }
