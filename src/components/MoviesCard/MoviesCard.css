@@ -9,7 +9,6 @@
 }
 
 .movies-card_cursor_pointer {
-    cursor: pointer;
 }
 
 .movies-card__image {
@@ -34,6 +33,7 @@
     border-radius: 0 0 6px 6px;
     background: #222;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .movies-card__name {
@@ -121,5 +121,11 @@
         gap: 14px 6px;
         height: 69px;
         padding-right: 22px;
+        cursor: default;
+    }
+
+    .movies-card__button_delete {
+        opacity: 1;
+        transition: opacity 0.3s ease;
     }
 }
