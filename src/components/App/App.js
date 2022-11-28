@@ -461,11 +461,9 @@ function App() {
                             isDisabled={isDisabled}
                             component={Profile}
                         />
-                        <ProtectedRoute
-                            path="/*"
-                            loggedIn={loggedIn}
-                            component={PageNotFound}
-                        />
+                        <Route path="/*">
+                            <PageNotFound />
+                        </Route>
                     </Switch>
                 </div>
                 <InfoTooltip
