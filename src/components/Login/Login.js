@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useFormWithValidation from '../../utils/validation';
 import Header from '../Header/Header';
 import LabelWithInput from '../LabelWithInput/LabelWithInput';
@@ -8,12 +8,20 @@ import './Login.css';
 
 function Login(props) {
     const validation = useFormWithValidation();
+    useEffect(() => {
+        if (
+            validation.values.name === '' &&
+            validation.values.email === '' &&
+            validation.values.password === ''
+        ) {
+            validation.setIsValid(false);
+        }
+    });
     function handleSubmit(evt) {
         evt.preventDefault();
         props.onLogin({
             ...validation.values,
         });
-        validation.resetForm();
     }
 
     return (
@@ -43,6 +51,7 @@ function Login(props) {
                         typeError={'email'}
                         error={validation.errors.email}
                         pattern={regex.email}
+                        isDisabled={props.isDisabled}
                     />
                     <LabelWithInput
                         form="logon"
@@ -55,6 +64,7 @@ function Login(props) {
                         error={validation.errors.password}
                         minLength="8"
                         maxLength="16"
+                        isDisabled={props.isDisabled}
                     />
                 </SectionForm>
             </main>

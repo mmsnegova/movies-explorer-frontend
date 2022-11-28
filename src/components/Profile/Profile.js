@@ -69,6 +69,7 @@ function Profile(props) {
                         error={validation.errors.name}
                         defaultValue={props.name}
                         pattern={regex.name}
+                        isDisabled={props.isDisabled}
                     />
                     <LabelWithInput
                         form="profile"
@@ -81,6 +82,7 @@ function Profile(props) {
                         error={validation.errors.email}
                         defaultValue={props.email}
                         pattern={regex.email}
+                        isDisabled={props.isDisabled}
                     />
                 </SectionForm>
             </main>

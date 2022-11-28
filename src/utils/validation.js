@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 export default function useFormWithValidation() {
     const [values, setValues] = useState({
         name: '',
@@ -11,12 +11,6 @@ export default function useFormWithValidation() {
         password: '',
     });
     const [isValid, setIsValid] = React.useState(true);
-
-    useEffect(() => {
-        if (!values) {
-            setIsValid(false);
-        }
-    });
 
     const handleChange = (event) => {
         const target = event.target;

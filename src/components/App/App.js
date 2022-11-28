@@ -73,6 +73,10 @@ function App() {
         }
     };
 
+    useEffect(() => {
+        console.log(isDisabled);
+    }, [isDisabled]);
+
     const addQuantityClickButtonMore = () => {
         setQuantityClickButtonMore(quantityClickButtonMore + 1);
     };
@@ -127,9 +131,8 @@ function App() {
                 })
                 .finally(() => {
                     handleInfoTooltipResponse();
+                    setIsDisabled(false);
                 });
-
-            setIsDisabled(false);
         } else onSignOut();
     }
 
@@ -143,16 +146,15 @@ function App() {
         setIsDisabled(true);
         return auth
             .register(password, email, name)
-            .then(() => {
-                handleRespons('Вы успешно зарегистрировались!');
-                history.push('/signin');
+            .then((res) => {
+                onLogin({ password, email });
             })
             .catch(() => {
                 handleRespons('Что-то пошло не так...');
+                handleInfoTooltipResponse();
             })
             .finally(() => {
                 setIsDisabled(false);
-                handleInfoTooltipResponse();
             });
     }
 

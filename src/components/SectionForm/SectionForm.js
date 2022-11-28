@@ -31,7 +31,7 @@ function SectionForm(props) {
                     <button
                         className={classNameButtonSubmit}
                         type="submit"
-                        disabled={!props.isValid}
+                        disabled={!props.isValid || props.isDisabled}
                     >
                         {props.textButton}
                     </button>
