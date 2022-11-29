@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeaderLogin from '../HeaderLogin/HeaderLogin';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
@@ -7,6 +7,12 @@ import Footer from '../Footer/Footer';
 import './SavedMovies.css';
 
 function SavedMovies(props) {
+    useEffect(() => {
+        props.setFilterSavedMovies([...props.savedMovies]);
+        props.setSearch(null);
+        props.setIsSavedCheckbox(false);
+    }, []);
+
     return (
         <>
             <HeaderLogin
@@ -25,6 +31,7 @@ function SavedMovies(props) {
                     onCheckBox={props.onCheckBox}
                     isCheckbox={props.isCheckbox}
                     errorSearch={props.errorSearch}
+                    setIsSavedCheckbox={props.setIsSavedCheckbox}
                 />
                 <MoviesCardList
                     cursor="movies-card_cursor_pointer"

@@ -159,6 +159,7 @@ function App() {
                 localStorage.setItem('isCheckbox', JSON.stringify(false));
                 localStorage.setItem('movies', JSON.stringify([]));
                 setIsCheckbox(false);
+                setIsSavedCheckbox(false);
                 setSearchSaved(null);
                 setFilterMovies([]);
                 setFilterSavedMovies([]);
@@ -472,6 +473,7 @@ function App() {
                             isOpenNavMenu={isNavMenuOpen}
                             onCheckBox={handleSavedCheckBox}
                             isCheckbox={isSavedCheckbox}
+                            setIsSavedCheckbox={setIsSavedCheckbox}
                             onGetMovies={handleSearchSavedMovis}
                             setFilterSavedMovies={setFilterSavedMovies}
                             movies={filterSavedMovies}
