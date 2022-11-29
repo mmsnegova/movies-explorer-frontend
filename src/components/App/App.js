@@ -247,9 +247,8 @@ function App() {
     };
 
     useEffect(() => {
-        if (filterMovies.length === 0 && search) {
+        if (token && filterMovies.length === 0 && search) {
             setErrorGetMovies('Ничего не найдено');
-            console.log(errorGetMovies);
         } else {
             setErrorGetMovies('');
         }
@@ -277,8 +276,10 @@ function App() {
     };
 
     useEffect(() => {
-        if (isCheckbox) filterShortMovies(filterMovies);
-        else setFilterMovies(JSON.parse(localStorage.getItem('movies')));
+        if (token) {
+            if (isCheckbox) filterShortMovies(filterMovies);
+            else setFilterMovies(JSON.parse(localStorage.getItem('movies')));
+        }
     }, [isCheckbox]);
 
     const filterShortMovies = (movies) => {
@@ -301,29 +302,32 @@ function App() {
     };
 
     useEffect(() => {
-        if (
-            !savedMovies.length === 0 ||
-            (searchSaved && filterSavedMovies.length === 0)
-        ) {
-            setErrorGetSavedMovies('Ничего не найдено');
-        } else {
-            setErrorGetSavedMovies('');
+        if (token) {
+            if (
+                !savedMovies.length === 0 ||
+                (searchSaved && filterSavedMovies.length === 0)
+            ) {
+                setErrorGetSavedMovies('Ничего не найдено');
+            } else {
+                setErrorGetSavedMovies('');
+            }
         }
     }, [filterSavedMovies]);
 
     useEffect(() => {
-        console.log(isSavedCheckbox);
-        if (isSavedCheckbox) filterShortSavedMovies();
-        else if (searchSaved) {
-            setFilterSavedMovies(
-                savedMovies.filter((movie) =>
-                    movie.nameRU
-                        .toLowerCase()
-                        .includes(searchSaved.toLowerCase())
-                )
-            );
-        } else {
-            setFilterSavedMovies(savedMovies);
+        if (token) {
+            if (isSavedCheckbox) filterShortSavedMovies();
+            else if (searchSaved) {
+                setFilterSavedMovies(
+                    savedMovies.filter((movie) =>
+                        movie.nameRU
+                            .toLowerCase()
+                            .includes(searchSaved.toLowerCase())
+                    )
+                );
+            } else {
+                setFilterSavedMovies(savedMovies);
+            }
         }
     }, [isSavedCheckbox]);
 

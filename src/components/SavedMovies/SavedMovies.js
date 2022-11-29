@@ -9,6 +9,7 @@ import './SavedMovies.css';
 function SavedMovies(props) {
     useEffect(() => {
         props.setFilterSavedMovies([...props.savedMovies]);
+        props.setIsCheckbox(false);
         props.setSearch(null);
     }, []);
 

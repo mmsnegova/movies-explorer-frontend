@@ -22,7 +22,7 @@ function FilterCheckbox(props) {
                     type="checkbox"
                     name="short-film"
                     id="short-film"
-                    defaultChecked={!props.isCheckbox}
+                    defaultChecked={props.isCheckbox}
                     onClick={handleCheckbox}
                 />
             ) : (
