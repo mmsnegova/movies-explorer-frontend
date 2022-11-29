@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './FilterCheckbox.css';
 
 function FilterCheckbox(props) {
+    useEffect(() => {
+        console.log(props.isCheckbox);
+    });
+
     function handleCheckbox() {
         props.onCheckBox();
     }

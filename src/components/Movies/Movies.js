@@ -4,11 +4,9 @@ import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import useSerchMovies from '../../utils/useErrorSearchMovies';
 import './Movies.css';
 
 function Movies(props) {
-    const searchMovies = useSerchMovies(props.search, props.movies);
     return (
         <>
             <HeaderLogin
@@ -28,6 +26,7 @@ function Movies(props) {
                     isCheckbox={props.isCheckbox}
                     setIsLoading={props.setIsLoading}
                     errorSearch={props.errorSearch}
+                    сheckEmptySerch={props.сheckEmptySerch}
                 />
                 {props.isLoading ? (
                     <Preloader />
@@ -48,9 +47,7 @@ function Movies(props) {
                         onMovieLike={props.onMovieLike}
                         onMovieDelete={props.onMovieDelete}
                         search={props.search}
-                        errorGetMovies={
-                            props.errorGetMovies || searchMovies.errorGetMovies
-                        }
+                        errorGetMovies={props.errorGetMovies}
                         token={props.token}
                         onSignOut={props.onSignOut}
                     />

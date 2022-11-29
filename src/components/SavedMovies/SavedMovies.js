@@ -3,12 +3,10 @@ import HeaderLogin from '../HeaderLogin/HeaderLogin';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import useSerchMovies from '../../utils/useErrorSearchMovies';
 
 import './SavedMovies.css';
 
 function SavedMovies(props) {
-    const searchMovies = useSerchMovies(props.search, props.movies);
     return (
         <>
             <HeaderLogin
@@ -35,7 +33,7 @@ function SavedMovies(props) {
                     movies={props.movies}
                     savedMovies={props.savedMovies}
                     onMovieDelete={props.onMovieDelete}
-                    errorGetMovies={searchMovies.errorGetMovies}
+                    errorGetMovies={props.errorGetMovies}
                     token={props.token}
                     onSignOut={props.onSignOut}
                 />

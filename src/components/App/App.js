@@ -30,14 +30,16 @@ function App() {
     const [isCheckbox, setIsCheckbox] = useState(
         JSON.parse(localStorage.getItem('isCheckbox'))
     );
-    const [isSavedCheckbox, setIsSavedCheckbox] = useState(true);
+    const [isSavedCheckbox, setIsSavedCheckbox] = useState(false);
     const [isViewMore, setIsViewMore] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [movies, setMovies] = useState(null);
     const [filterMovies, setFilterMovies] = useState(
         JSON.parse(localStorage.getItem('movies'))
     );
     const [errorSearch, setErrorSearch] = useState(null);
     const [errorGetMovies, setErrorGetMovies] = useState(null);
+    const [errorGetSavedMovies, setErrorGetSavedMovies] = useState(null);
     const [savedMovies, setSavedMovies] = useState([]);
     const [filterSavedMovies, setFilterSavedMovies] = useState([]);
     const baseUrl = 'https://api.nomoreparties.co';
@@ -73,10 +75,6 @@ function App() {
         }
     };
 
-    useEffect(() => {
-        console.log(isDisabled);
-    }, [isDisabled]);
-
     const addQuantityClickButtonMore = () => {
         setQuantityClickButtonMore(quantityClickButtonMore + 1);
     };
@@ -91,15 +89,6 @@ function App() {
 
     const handleNavMenuClick = () => {
         setIsNavMenuOpen(!isNavMenuOpen);
-    };
-
-    const handleCheckBox = () => {
-        localStorage.setItem('isCheckbox', JSON.stringify(!isCheckbox));
-        setIsCheckbox(JSON.parse(localStorage.getItem('isCheckbox')));
-    };
-
-    const handleSavedCheckBox = () => {
-        setIsSavedCheckbox(!isSavedCheckbox);
     };
 
     const handleCheckViewMore = () => {
@@ -160,20 +149,17 @@ function App() {
 
     function onLogin({ password, email }) {
         setIsDisabled(true);
-        localStorage.setItem('isCheckbox', JSON.stringify(true));
-        localStorage.setItem('movies', JSON.stringify([]));
         return auth
             .authorize(password, email)
             .then((res) => {
                 setToken(res.token);
                 setLoggedIn(true);
                 setIsDisabled(false);
-                setIsCheckbox(true);
-                setIsSavedCheckbox(true);
-                setErrorGetMovies('');
-                setSearch('');
-                setSearchSaved('');
-                setErrorSearch('');
+                setSearch(null);
+                localStorage.setItem('isCheckbox', JSON.stringify(false));
+                localStorage.setItem('movies', JSON.stringify([]));
+                setIsCheckbox(false);
+                setSearchSaved(null);
                 setFilterMovies([]);
                 setFilterSavedMovies([]);
                 setSavedMovies([]);
@@ -245,35 +231,32 @@ function App() {
             });
     }
 
-    const handleFilterMoviesBeatFilm = (res) => {
-        if (isCheckbox) {
-            localStorage.setItem(
-                'movies',
-                JSON.stringify(
-                    res.filter(
-                        (movie) =>
-                            movie.nameRU
-                                .toLowerCase()
-                                .includes(search.toLowerCase()) &&
-                            movie.duration <= 40
-                    )
+    const handleFilterMoviesBeatFilm = (movies) => {
+        localStorage.setItem(
+            'movies',
+            JSON.stringify(
+                movies.filter((movie) =>
+                    movie.nameRU.toLowerCase().includes(search.toLowerCase())
                 )
-            );
+            )
+        );
+        if (isCheckbox)
+            filterShortMovies(JSON.parse(localStorage.getItem('movies')));
+        else setFilterMovies(JSON.parse(localStorage.getItem('movies')));
+    };
+
+    useEffect(() => {
+        if (filterMovies.length === 0 && search) {
+            setErrorGetMovies('Ничего не найдено');
+            console.log(errorGetMovies);
         } else {
-            localStorage.setItem(
-                'movies',
-                JSON.stringify(
-                    res.filter(
-                        (movie) =>
-                            movie.nameRU
-                                .toLowerCase()
-                                .includes(search.toLowerCase()) &&
-                            movie.duration > 40
-                    )
-                )
-            );
+            setErrorGetMovies('');
         }
-        setFilterMovies(JSON.parse(localStorage.getItem('movies')));
+    }, [filterMovies]);
+
+    const handleCheckBox = () => {
+        localStorage.setItem('isCheckbox', JSON.stringify(!isCheckbox));
+        setIsCheckbox(JSON.parse(localStorage.getItem('isCheckbox')));
     };
 
     const getMoviesBeatFilm = () => {
@@ -281,7 +264,11 @@ function App() {
         moviesApi
             .getMovies()
             .then((res) => {
-                handleFilterMoviesBeatFilm(res);
+                setMovies(res);
+                return res;
+            })
+            .then((movies) => {
+                handleFilterMoviesBeatFilm(movies);
             })
             .catch(() => {
                 setErrorGetMovies(
@@ -293,10 +280,23 @@ function App() {
             });
     };
 
+    useEffect(() => {
+        if (isCheckbox) filterShortMovies(filterMovies);
+        else setFilterMovies(JSON.parse(localStorage.getItem('movies')));
+    }, [isCheckbox]);
+
+    const filterShortMovies = (movies) => {
+        setFilterMovies(movies.filter((movie) => movie.duration <= 40));
+    };
+
     const handleSearchMoviesBeatFilm = () => {
         setQuantityClickButtonMore(0);
-        if (search !== '') {
-            getMoviesBeatFilm();
+        if (search) {
+            if (!movies) {
+                getMoviesBeatFilm();
+            } else {
+                handleFilterMoviesBeatFilm(movies);
+            }
         } else {
             localStorage.setItem('movies', JSON.stringify([]));
             setFilterMovies(JSON.parse(localStorage.getItem('movies')));
@@ -304,8 +304,38 @@ function App() {
         }
     };
 
-    function handleFilterSavedMovis() {
-        if (isSavedCheckbox) {
+    useEffect(() => {
+        if (
+            !savedMovies.length === 0 ||
+            (searchSaved && filterSavedMovies.length === 0)
+        ) {
+            setErrorGetSavedMovies('Ничего не найдено');
+        } else {
+            setErrorGetSavedMovies('');
+        }
+    }, [filterSavedMovies]);
+
+    useEffect(() => {
+        if (isSavedCheckbox) filterShortSavedMovies();
+        else if (searchSaved) {
+            setFilterSavedMovies(
+                savedMovies.filter((movie) =>
+                    movie.nameRU
+                        .toLowerCase()
+                        .includes(searchSaved.toLowerCase())
+                )
+            );
+        } else {
+            setFilterSavedMovies(savedMovies);
+        }
+    }, [isSavedCheckbox]);
+
+    const handleSavedCheckBox = () => {
+        setIsSavedCheckbox(!isSavedCheckbox);
+    };
+
+    const filterShortSavedMovies = () => {
+        if (searchSaved) {
             setFilterSavedMovies(
                 savedMovies.filter(
                     (movie) =>
@@ -315,21 +345,26 @@ function App() {
                         movie.duration <= 40
                 )
             );
-        } else {
+        } else
             setFilterSavedMovies(
-                savedMovies.filter(
-                    (movie) =>
-                        movie.nameRU
-                            .toLowerCase()
-                            .includes(searchSaved.toLowerCase()) &&
-                        movie.duration > 40
+                savedMovies.filter((movie) => movie.duration <= 40)
+            );
+    };
+
+    const handleFilterSavedMovis = () => {
+        if (!isSavedCheckbox)
+            setFilterSavedMovies(
+                savedMovies.filter((movie) =>
+                    movie.nameRU
+                        .toLowerCase()
+                        .includes(searchSaved.toLowerCase())
                 )
             );
-        }
-    }
+        else filterShortSavedMovies();
+    };
 
     const handleSearchSavedMovis = () => {
-        if (searchSaved !== '') {
+        if (searchSaved) {
             handleFilterSavedMovis();
         } else {
             setFilterSavedMovies([]);
@@ -438,6 +473,7 @@ function App() {
                             onCheckBox={handleSavedCheckBox}
                             isCheckbox={isSavedCheckbox}
                             onGetMovies={handleSearchSavedMovis}
+                            setFilterSavedMovies={setFilterSavedMovies}
                             movies={filterSavedMovies}
                             savedMovies={savedMovies}
                             onMovieDelete={handleDeleteMovie}
@@ -445,7 +481,7 @@ function App() {
                             isLoading={isLoading}
                             search={searchSaved}
                             errorSearch={errorSearch}
-                            errorGetMovies={errorGetMovies}
+                            errorGetMovies={errorGetSavedMovies}
                             token={token}
                             onSignOut={onSignOut}
                             component={SavedMovies}
