@@ -13,11 +13,6 @@ function SavedMovies(props) {
         props.setSearch(null);
     }, []);
 
-    useEffect(() => {
-        console.log(props.isCheckbox);
-        console.log(props.search);
-    }, [props.setIsCheckbox]);
-
     return (
         <>
             <HeaderLogin
