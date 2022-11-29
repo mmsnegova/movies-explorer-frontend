@@ -35,7 +35,9 @@ function SearchForm(props) {
                     <button className="search-form__submit" type="submit" />
                 </fieldset>
                 <FilterCheckbox
-                    onCheckBox={props.onCheckBox}
+                    isSaved={props.isSaved}
+                    onCheckbox={props.onCheckbox}
+                    setIsCheckbox={props.setIsCheckbox}
                     isCheckbox={props.isCheckbox}
                 />
             </form>

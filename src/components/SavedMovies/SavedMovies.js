@@ -10,8 +10,12 @@ function SavedMovies(props) {
     useEffect(() => {
         props.setFilterSavedMovies([...props.savedMovies]);
         props.setSearch(null);
-        props.setIsSavedCheckbox(false);
     }, []);
+
+    useEffect(() => {
+        console.log(props.isCheckbox);
+        console.log(props.search);
+    }, [props.setIsCheckbox]);
 
     return (
         <>
@@ -28,10 +32,10 @@ function SavedMovies(props) {
                     setSearch={props.setSearch}
                     isSaved={true}
                     search={props.search}
-                    onCheckBox={props.onCheckBox}
+                    setIsCheckbox={props.setIsCheckbox}
                     isCheckbox={props.isCheckbox}
+                    onCheckbox={props.onCheckbox}
                     errorSearch={props.errorSearch}
-                    setIsSavedCheckbox={props.setIsSavedCheckbox}
                 />
                 <MoviesCardList
                     cursor="movies-card_cursor_pointer"

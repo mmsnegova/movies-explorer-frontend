@@ -22,7 +22,7 @@ function Movies(props) {
                     onGetMovies={props.onGetMovies}
                     setSearch={props.setSearch}
                     search={props.search}
-                    onCheckBox={props.onCheckBox}
+                    setIsCheckbox={props.setIsCheckbox}
                     isCheckbox={props.isCheckbox}
                     setIsLoading={props.setIsLoading}
                     errorSearch={props.errorSearch}

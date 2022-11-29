@@ -255,11 +255,6 @@ function App() {
         }
     }, [filterMovies]);
 
-    const handleCheckBox = () => {
-        localStorage.setItem('isCheckbox', JSON.stringify(!isCheckbox));
-        setIsCheckbox(JSON.parse(localStorage.getItem('isCheckbox')));
-    };
-
     const getMoviesBeatFilm = () => {
         setIsLoading(true);
         moviesApi
@@ -317,6 +312,7 @@ function App() {
     }, [filterSavedMovies]);
 
     useEffect(() => {
+        console.log(isSavedCheckbox);
         if (isSavedCheckbox) filterShortSavedMovies();
         else if (searchSaved) {
             setFilterSavedMovies(
@@ -330,10 +326,6 @@ function App() {
             setFilterSavedMovies(savedMovies);
         }
     }, [isSavedCheckbox]);
-
-    const handleSavedCheckBox = () => {
-        setIsSavedCheckbox(!isSavedCheckbox);
-    };
 
     const filterShortSavedMovies = () => {
         if (searchSaved) {
@@ -443,8 +435,8 @@ function App() {
                             onNavMenu={handleNavMenuClick}
                             winWidth={winWidth}
                             isOpenNavMenu={isNavMenuOpen}
-                            onCheckBox={handleCheckBox}
                             isCheckbox={isCheckbox}
+                            setIsCheckbox={setIsCheckbox}
                             quantityMoviesOnPage={quantityMoviesOnPage}
                             quantityMoreMovies={quantityMoreMovies}
                             quantityClickButtonMore={quantityClickButtonMore}
@@ -471,9 +463,8 @@ function App() {
                             loggedIn={loggedIn}
                             onNavMenu={handleNavMenuClick}
                             isOpenNavMenu={isNavMenuOpen}
-                            onCheckBox={handleSavedCheckBox}
                             isCheckbox={isSavedCheckbox}
-                            setIsSavedCheckbox={setIsSavedCheckbox}
+                            setIsCheckbox={setIsSavedCheckbox}
                             onGetMovies={handleSearchSavedMovis}
                             setFilterSavedMovies={setFilterSavedMovies}
                             movies={filterSavedMovies}
