@@ -27,11 +27,14 @@
 }
 
 .page-not-found__link {
+    border: none;
+    background: none;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     color: #4285f4;
     text-decoration: none;
+    cursor: pointer;
 }
 
 @media (max-width: 880px) {
