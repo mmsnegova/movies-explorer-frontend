@@ -18,14 +18,14 @@
 }
 
 .movies-card-list__item {
-    display: block;
-}
-
-.movies-card-list__item:nth-of-type(n + 13) {
     display: none;
 }
 
-.movies-card-list__item_opened:nth-of-type(n + 13) {
+/* .movies-card-list__item:nth-of-type(n + 13) {
+    display: none;
+}*/
+
+.movies-card-list__item_opened {
     display: block;
 }
 
@@ -45,6 +45,10 @@
     color: #fff;
     transition: opacity 0.3s ease;
     cursor: pointer;
+}
+
+.movies-card-list__more_none {
+    display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {

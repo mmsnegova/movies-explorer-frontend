@@ -29,7 +29,6 @@
 .label-with-input__lable_profile:last-of-type {
     border-bottom: none;
     margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .label-with-input__lable_logon:last-of-type {
@@ -65,7 +64,7 @@
     text-align: start;
 }
 
-.label-with-input__input_password {
+.label-with-input__input_invalid {
     color: #ee3465;
 }
 

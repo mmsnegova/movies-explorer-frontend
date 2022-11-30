@@ -18,7 +18,11 @@ Frontend веб-приложения movies-explorer на React
 -   HTML
 -   CSS
 -   JSX
+-   JS
+-   React
 
 **Публикация проекта**
 
 -   Ссылка на [макет](https://disk.yandex.ru/d/Ma3A8FZwfnEEyA)
+-   Ссылка на [пул-реквест](https://github.com/mmsnegova/movies-explorer-frontend/pull/2#issue-1465231038) с фронтенд частью
+-   Frontend https://movies-explr.msnegova.nomoredomains.icu/

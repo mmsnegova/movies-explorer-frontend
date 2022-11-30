@@ -1,0 +1,89 @@
+.tooltip {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    box-sizing: border-box;
+    display: flex;
+    transition: opacity 0.3s, visibility 0s 1s;
+}
+
+.tooltip_opened {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0s;
+}
+
+.tooltip__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 430px;
+    height: 200px;
+    background: #202020;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    box-sizing: border-box;
+    padding: 34px 36px 37px;
+}
+
+.tooltip__close {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    width: 100%;
+    max-width: 14px;
+    height: 100%;
+    max-height: 12px;
+    box-shadow: none;
+    background-image: url(../../images/delete.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip__title {
+    text-align: center;
+    margin: 0;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ee3465;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .tooltip__close:hover {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 480px) {
+    .tooltip {
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    .tooltip__content {
+        padding: 25px 22px;
+    }
+
+    .tooltip__content_center {
+        padding: 50px 18px;
+    }
+}

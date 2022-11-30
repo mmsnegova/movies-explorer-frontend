@@ -7,6 +7,7 @@ function NavLink(props) {
         <Link
             to={props.path}
             className={`nav-link nav-link_type_${props.name} nav-link_text_${props.size} nav-link_${props.active} nav-link_color_${props.color}`}
+            onClick={props.onNavMenu}
         >
             {props.title}
         </Link>
